@@ -3,26 +3,97 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<title>polytechnium</title>
+
+	<link rel="stylesheet" href="../header.css">
+	<link rel="stylesheet" href="../footer.css">
+
+	<style>
+		#concepts {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			padding: 2vmin;
+			background-color: lightgrey;
+		}
+	</style>
 </head>
 <body>
-	<h1>polytechnium</h1>
+	<div id="header">
+		<x>c</x><x>o</x><x>n</x><x>c</x><x>e</x><x>p</x><x>t</x><x>s</x>
+	</div>
 
-	<h2>concepts</h2>
+	<div id="concepts">
+		<h3>
+			pdf notes
+		</h3>
+		<span>
+			<a target="_blank" href="ball_balancer.pdf">
+				ball balancer
+			</a>
+		</span><br />
+		<span>
+			<a target="_blank" href="divergence.pdf">
+				divergence
+			</a>
+		</span><br />
+		<span>
+			<a target="_blank" href="greedy_meshing.pdf">
+				&hearts;greedy meshing
+			</a>
+		</span><br />
+		<span>
+			<a target="_blank" href="multiplexing.pdf">
+				&hearts;multiplexing
+			</a>
+		</span><br />
+		<span>
+			<a target="_blank" href="raytracing.pdf">
+				raytracing
+			</a>
+		</span><br />
+		<span>
+			<a target="_blank" href="sequential_segments.pdf">
+				sequential segments
+			</a>
+		</span><br />
+		<span>
+			<a target="_blank" href="shape_matching.pdf">
+				&hearts;shape matching
+			</a>
+		</span><br />
+		<span>
+			<a target="_blank" href="tracking.pdf">
+				&hearts;tracking
+			</a>
+		</span><br />
+		<span>
+			<a target="_blank" href="tree_gen.pdf">
+				&hearts;tree generation
+			</a>
+		</span><br />
+		<span>
+			<a target="_blank" href="ui_layout.pdf">
+				ui layout
+			</a>
+		</span><br />
+		<span>
+			<a target="_blank" href="voxel_rendering.pdf">
+				&hearts;voxel_rendering
+			</a>
+		</span><br />
+	</div>
 
-	<!--these open the pdfs in a new tab-->
-	<a target="_blank" href="ball_balancer.pdf">ball balancer</a><br />
-	<a target="_blank" href="divergence.pdf">divergence</a><br />
-	<a target="_blank" href="greedy_meshing.pdf">greedy meshing</a><br />
-	<a target="_blank" href="multiplexing.pdf">multiplexing</a><br />
-	<a target="_blank" href="raytracing.pdf">raytracing</a><br />
-	<a target="_blank" href="sequential_segments.pdf">sequential segments</a><br />
-	<a target="_blank" href="shape_matching.pdf">shape matching</a><br />
-	<a target="_blank" href="tracking.pdf">tracking</a><br />
-	<a target="_blank" href="tree_gen.pdf">tree generation</a><br />
-	<a target="_blank" href="ui_layout.pdf">ui layout</a><br />
-	<a target="_blank" href="voxel_rendering.pdf">voxel rendering</a><br />
+	<div id="footer">
+		<span>
+			<a href="../index.html">back</a>
+			|
+			<a onclick="debug()"><u>debug</u></a>
+		</span>
+	</div>
 
-	<a href="../index.html">back</a>
+	<script src="../debug.js"></script>
 </body>
 </html>
