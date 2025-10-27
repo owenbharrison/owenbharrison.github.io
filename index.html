@@ -3,31 +3,77 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<title>polytechnium</title>
+
+	<link rel="stylesheet" href="header.css">
+	<link rel="stylesheet" href="footer.css">
+
+	<style>
+		#ideas, #projects, #concepts {
+			position: absolute;
+			top: 50%;
+			transform: translate(0, -50%);
+			user-select: none;
+		}
+
+		.content {
+			position: relative;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, 0);
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
-	<h1>polytechnium</h1>
+	<div id="header">
+		<x>p</x><x>o</x><x>l</x><x>y</x><x>t</x><x>e</x><x>c</x><x>h</x><x>n</x><x>i</x><x>u</x><x>m</x>
+	</div>
 
-	<a href="projects/projects.html">
-		<h2>projects</h2>
-	</a>
+	<div id="ideas" style="left: 6vw;">
+		<div class="content">
+			<h2>
+				<a target="_blank" href="https://docs.google.com/document/d/1JdAntc3P8q_ZWWVo7FOBkkEGXFBVYO1JFs9O0oej5a8/edit?tab=t.0">
+					ideas
+				</a>
+			</h2>
+			<h3>heading3</h3>
+		</div>
+	</div>
 
-	<a href="concepts/concepts.html">
-		<h2>concepts</h2>
-	</a>
+	<div id="projects" style="left: 50%; transform: translate(-50%, -50%);">
+		<div class="content">
+			<h1>
+				<a href="projects/projects.html">
+					projects
+				</a>
+			</h1>
+			<h2>heading2</h2>
+		</div>
+	</div>
 
-	<!--this opens the docs in a new tab-->
-	<a target="_blank" href="https://docs.google.com/document/d/1JdAntc3P8q_ZWWVo7FOBkkEGXFBVYO1JFs9O0oej5a8/edit?tab=t.0">
-		<h2>ideas</h2>
-	</a>
+	<div id="concepts" style="right: 6vw;">
+		<div class="content">
+			<h2>
+				<a href="concepts/concepts.html">
+					concepts
+				</a>
+			</h2>
+			<h3>heading2</h3>
+		</div>
+	</div>
+	
+	<div id="footer">
+		<span>
+			<a href="about.html">about</a>
+			|
+			<a href="mailto:owenbharrison@gmail.com">email</a>
+			|
+			<a onclick="debug()"><u>debug</u></a>
+		</span>
+	</div>
 
-	<!--this opens the repo in a new tab-->
-	<a target="_blank" href="https://github.com/owenbharrison/simsAndGames">
-		<h2>repository</h2>
-	</a>
-
-	<a href="about.html">
-		<h2>about</h2>
-	</a>
+	<script src="debug.js"></script>
 </body>
 </html>

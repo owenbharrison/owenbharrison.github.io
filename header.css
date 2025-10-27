@@ -1,0 +1,25 @@
+/*place header at top*/
+/*font scales w.r.t window size*/
+/*unselectable*/
+#header {
+	position: absolute;
+	gap: 0;
+	top: 3vh;
+	left: 50%;
+	transform: translate(-50%, 0);
+	font-size: 6vw;
+	letter-spacing: 0.2em;
+	user-select: none;
+}
+
+/*uhh...transition less jarring*/
+#header x {
+	display: inline-block;
+	transition: transform 0.1s ease, color 0.05s ease;
+}
+
+/*scale header letters on hover*/
+#header x:hover {
+	transform: scale(1.5);
+	color: #0077ff;
+}
