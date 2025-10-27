@@ -51,7 +51,7 @@
 		<x>p</x><x>r</x><x>o</x><x>j</x><x>e</x><x>c</x><x>t</x><x>s</x>
 	</div>
 
-	<div id="poster-track" datamouse-down-at="0" data-prev-pct="0" data-pct="0">
+	<div id="poster-track" data-mouse-down-at="0" data-prev-pct="0" data-pct="0">
 		<div class="poster" style="background-image: url('thumbnails/3d_fx.png')">
 			<span class="label">
 				<a href="3d_fx/index.html">
@@ -180,17 +180,18 @@
 	<script>
 		let track = document.getElementById("poster-track");
 
-		function cursorDown(x) {
-			track.dataset.mouseDownAt = x;
-		}
+		window.onpointerdown = e => {
+			e.preventDefault();
 
-		window.onmousedown = e => cursorDown(e.clientX);
-		window.ontouchstart = e => cursorDown(e.touches[0].clientX);
+			track.dataset.mouseDownAt = e.clientX;
+		};
 
-		function cursorMove(x) {
+		window.onpointermove = e => {
+			e.preventDefault();
+
 			if (track.dataset.mouseDownAt === "0") return;
 
-			let mouse_delta = parseFloat(track.dataset.mouseDownAt) - x;
+			let mouse_delta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
 			let max_delta = window.innerWidth;
 			let pct = -100 * mouse_delta / max_delta;
 
@@ -212,18 +213,14 @@
 					backgroundPosition: `${100 + next_pct}% 50%`
 				}, { duration: 1200, fill: "forwards" });
 			}
-		}
+		};
 
-		window.onmousemove = e => cursorMove(e.clientX);
-		window.ontouch = e => cursorMove(e.touches[0].clientX);
+		window.onpointerup = e => {
+			e.preventDefault();
 
-		function cursorUp() {
 			track.dataset.mouseDownAt = "0";
 			track.dataset.prevPct = track.dataset.pct;
-		}
-
-		window.onmouseup = () => cursorUp();
-		window.ontouchend = () => cursorUp();
+		};
 	</script>
 </body>
 </html>
