@@ -1,261 +1,146 @@
-<!--https://www.youtube.com/watch?v=PkADl0HubMY-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>polytechnium</title>
+	<title>p r o j e c t s</title>
 
 	<link rel="stylesheet" href="../header.css">
+	<link rel="stylesheet" href="../coolname.css">
+	<link rel="stylesheet" href="../hac.css">
+	<link rel="stylesheet" href="../cardgrid.css">
 	<link rel="stylesheet" href="../footer.css">
-
-	<style>
-		body {
-			width: 100vw;
-			height: 100vh;
-			margin: 0;
-			overflow: hidden;
-		}
-
-		#poster-track {
-			display: flex;
-			gap: 4vmin;
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate(0%, -50%);
-		}
-
-		.poster {
-			width: 56vmin;
-			height: 56vmin;
-			background-size: cover;
-			background-position: 100% 50%;
-			user-select: none;
-		}
-
-		.poster .label {
-			background-color: white;
-			color: black;
-			padding: 0.5vmin;
-			position: relative;
-			font-size: 2vmin;
-			left: 2vmin;
-			top: 2vmin;
-		}
-	</style>
 </head>
 <body>
-	<div id="header">
-		<x>p</x><x>r</x><x>o</x><x>j</x><x>e</x><x>c</x><x>t</x><x>s</x>
-	</div>
+	<header>
+		<div id="coolname">
+			<x>p</x><x>r</x><x>o</x><x>j</x><x>e</x><x>c</x><x>t</x><x>s</x>
+		</div>
 
-	<div id="poster-track" data-mouse-down-at="0" data-prev-pct="0" data-pct="0">
-		<div class="poster" style="background-image: url('thumbnails/3d_fx.png')">
-			<span class="label">
-				<a href="3d_fx/index.html">
-					3d_fx
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/a_star_nav.png')">
-			<span class="label">
-				<a href="a_star_nav/index.html">
-					&hearts;a_star_nav
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/asteroids.png')">
-			<span class="label">
-				<a href="asteroids/index.html">
-					&hearts;asteroids
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/block_craft.png')">
-			<span class="label">
-				<a href="block_craft/index.html">
-					block_craft
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/cloth.png')">
-			<span class="label">
-				<a href="cloth/index.html">
-					&hearts;cloth
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/eulerian_fluid.png')">
-			<span class="label">
-				<a href="eulerian_fluid/index.html">
-					eulerian_fluid
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/fracture.png')">
-			<span class="label">
-				<a href="fracture/index.html">
-					fracture
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/geometrize.png')">
-			<span class="label">
-				<a href="geometrize/index.html">
-					&hearts;geometrize
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/jelly_car_clone.png')">
-			<span class="label">
-				<a href="jelly_car_clone/index.html">
-					jelly_car_clone
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/minesweeper.png')">
-			<span class="label">
-				<a href="minesweeper/index.html">
-					&hearts;minesweeper
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/particles.png')">
-			<span class="label">
-				<a href="particles/index.html">
-					particles
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/pixels.png')">
-			<span class="label">
-				<a href="pixels/index.html">
-					pixels
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/planet_game.png')">
-			<span class="label">
-				<a href="planet_game/index.html">
-					&hearts;planet_game
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/raycasting.png')">
-			<span class="label">
-				<a href="raycasting/index.html">
-					raycasting
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/rigid_bodies.png')">
-			<span class="label">
-				<a href="rigid_bodies/index.html">
-					rigid_bodies
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/slicer.png')">
-			<span class="label">
-				<a href="slicer/index.html">
-					&hearts;slicer
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/smoke.png')">
-			<span class="label">
-				<a href="smoke/index.html">
-					&hearts;smoke
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/steering_behaviors.png')">
-			<span class="label">
-				<a href="steering_behaviors/index.html">
-					steering_behaviors
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/tracking.png')">
-			<span class="label">
-				<a href="tracking/index.html">
-					&hearts;tracking
-				</a>
-			</span>
-		</div>
-		<div class="poster" style="background-image: url('thumbnails/targetting.png')">
-			<span class="label">
-				<a href="targetting/index.html">
-					targetting
-				</a>
-			</span>
-		</div>
-	</div>
-
-	<div id="footer">
-		<span>
-			<a href="../index.html">
-				back
-			</a>
+		<div id="hac">
+			<a href="../index.html">home</a>
 			|
-			<a target="_blank" href="https://github.com/owenbharrison/simsAndGames">
-				repository
-			</a>
+			<a href="../about/about.html">about</a>
 			|
-			<a onclick="debug()">
-				<u>debug</u>
-			</a>
-		</span>
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div class="cardgrid">
+		<a class="card" href="tracking/index.html">
+			<img src="thumbnails/tracking.png" />
+			<h3>&hearts;tracking</h3>
+			<p>3d virtual position-triangulation thru multiple camera's frame-wise differences</p>
+		</a>
+
+		<a class="card" href="particles/index.html">
+			<img src="thumbnails/particles.png" />
+			<h3>particles</h3>
+			<p>particle system with collisions using an optimized spatial hash grid</p>
+		</a>
+
+		<a class="card" href="geometrize/index.html">
+			<img src="thumbnails/geometrize.png" />
+			<h3>&hearts;geometrize</h3>
+			<p>image abstracted with shapes using a hill-climbing algorithm</p>
+		</a>
+
+		<a class="card" href="fracture/index.html">
+			<img src="thumbnails/fracture.png" />
+			<h3>fracture</h3>
+			<p>3d model mesh split by plane and retriangulated</p>
+		</a>
+
+		<a class="card" href="minesweeper/index.html">
+			<img src="thumbnails/minesweeper.png" />
+			<h3>&hearts;minesweeper</h3>
+			<p>the classic minesweeper game in 3d with intuitive orbit controls & cosmentic particle systems</p>
+		</a>
+
+		<a class="card" href="cloth/index.html">
+			<img src="thumbnails/cloth.png" />
+			<h3>&hearts;cloth</h3>
+			<p>3d flag-like mass-spring cloth simulation</p>
+		</a>
+
+		<a class="card" href="eulerian_fluid/index.html">
+			<img src="thumbnails/eulerian_fluid.png" />
+			<h3>eulerian fluid</h3>
+			<p>implementation of jos stam's <i>real-time fluid dynamics for games</i></p>
+		</a>
+
+		<a class="card" href="slicer/index.html">
+			<img src="thumbnails/slicer.png" />
+			<h3>&hearts;slicer</h3>
+			<p>voxelized mesh sliced into greedymeshed prisms</p>
+		</a>
+
+		<a class="card" href="targetting/index.html">
+			<img src="thumbnails/targetting.png" />
+			<h3>targetting</h3>
+			<p>3d interactive scene with quaternion rotation, plane translation, and relative scaling</p>
+		</a>
+
+		<a class="card" href="a_star_nav/index.html">
+			<img src="thumbnails/a_star_nav.png" />
+			<h3>&hearts;a star nav</h3>
+			<p>3d open world with a* navigation system</p>
+		</a>
+
+		<a class="card" href="asteroids/index.html">
+			<img src="thumbnails/asteroids.png" />
+			<h3>asteroids</h3>
+			<p>the classic asteroids game with a pseudo-shader to imitate text-based console graphics</p>
+		</a>
+
+		<a class="card" href="pixels/index.html">
+			<img src="thumbnails/pixels.png" />
+			<h3>&hearts;pixels</h3>
+			<p>orientable bitmaps with physics and collision detection</p>
+		</a>
+
+		<a class="card" href="raycasting/index.html">
+			<img src="thumbnails/raycasting.png" />
+			<h3>raycasting</h3>
+			<p>casting shadows in all directions using dda(digital differential analyzer) tilemap ray intersections</p>
+		</a>
+
+		<a class="card" href="smoke/index.html">
+			<img src="thumbnails/smoke.png" />
+			<h3>&hearts;smoke</h3>
+			<p>attempt to procedurally imitate smoke-like effects with a particle system</p>
+		</a>
+
+		<a class="card" href="steering_behaviors/index.html">
+			<img src="thumbnails/steering_behaviors.png" />
+			<h3>steering behaviors [wip]</h3>
+			<p>implementation of craig reynolds' boids with a mouse fleeing rule</p>
+		</a>
+
+		<a class="card" href="planet_game/index.html">
+			<img src="thumbnails/planet_game.png" />
+			<h3>planet game [wip]</h3>
+			<p>3d spherical-coordinate based walking control system for an upcoming game</p>
+		</a>
+
+		<a class="card" href="jelly_car_clone/index.html">
+			<img src="thumbnails/jelly_car_clone.png" />
+			<h3>jelly car clone [wip]</h3>
+			<p>implementation of walaber entertainment's softbody physics system for the game <i>jelly car</i></p>
+		</a>
+
+		<a class="card" href="rigid_bodies/index.html">
+			<img src="thumbnails/rigid_bodies.png" />
+			<h3>rigid bodies [wip]</h3>
+			<p>attempt to imitate rigid body physics using sat(seperating axis theorem)</p>
+		</a>
 	</div>
 
-	<script src="../debug.js"></script>
+	<footer>
+		&copy; 2025 Owen Harrison
+	</footer>
 
-	<script>
-		let track = document.getElementById("poster-track");
-
-		window.onpointerdown = e => {
-			e.preventDefault();
-
-			track.dataset.mouseDownAt = e.clientX;
-		};
-
-		window.onpointermove = e => {
-			e.preventDefault();
-
-			if (track.dataset.mouseDownAt === "0") return;
-
-			let mouse_delta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
-			let max_delta = window.innerWidth;
-			let pct = -100 * mouse_delta / max_delta;
-
-			let next_pct = pct + parseFloat(track.dataset.prevPct);
-
-			next_pct = Math.max(Math.min(next_pct, 0), -100);
-
-			track.dataset.pct = next_pct;
-
-			//track.style.transform = `translate(${next_pct}%, -50%)`;
-			track.animate({
-				transform: `translate(${next_pct}%, -50%)`
-			}, { duration: 1200, fill: "forwards" });
-
-			//scroll images
-			for (let img of track.getElementsByClassName("poster")) {
-				//img.style.objectPosition = `${100 + next_pct}% 50%`;
-				img.animate({
-					backgroundPosition: `${100 + next_pct}% 50%`
-				}, { duration: 1200, fill: "forwards" });
-			}
-		};
-
-		window.onpointerup = e => {
-			e.preventDefault();
-
-			track.dataset.mouseDownAt = "0";
-			track.dataset.prevPct = track.dataset.pct;
-		};
-	</script>
+	<script src="../click_me.js"></script>
 </body>
 </html>

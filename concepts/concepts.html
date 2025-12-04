@@ -1,99 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>polytechnium</title>
+	<title>c o n c e p t s</title>
 
 	<link rel="stylesheet" href="../header.css">
+	<link rel="stylesheet" href="../coolname.css">
+	<link rel="stylesheet" href="../hac.css">
+	<link rel="stylesheet" href="../cardgrid.css">
 	<link rel="stylesheet" href="../footer.css">
 
-	<style>
-		#concepts {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			padding: 2vmin;
-			background-color: lightgrey;
-		}
-	</style>
 </head>
 <body>
-	<div id="header">
-		<x>c</x><x>o</x><x>n</x><x>c</x><x>e</x><x>p</x><x>t</x><x>s</x>
-	</div>
-
-	<div id="concepts">
-		<h3>
-			pdf notes
-		</h3>
-		<span>
-			<a target="_blank" href="ball_balancer.pdf">
-				ball balancer
-			</a>
-		</span><br />
-		<span>
-			<a target="_blank" href="divergence.pdf">
-				divergence
-			</a>
-		</span><br />
-		<span>
-			<a target="_blank" href="greedy_meshing.pdf">
-				&hearts;greedy meshing
-			</a>
-		</span><br />
-		<span>
-			<a target="_blank" href="multiplexing.pdf">
-				&hearts;multiplexing
-			</a>
-		</span><br />
-		<span>
-			<a target="_blank" href="raytracing.pdf">
-				raytracing
-			</a>
-		</span><br />
-		<span>
-			<a target="_blank" href="sequential_segments.pdf">
-				sequential segments
-			</a>
-		</span><br />
-		<span>
-			<a target="_blank" href="shape_matching.pdf">
-				&hearts;shape matching
-			</a>
-		</span><br />
-		<span>
-			<a target="_blank" href="tracking.pdf">
-				&hearts;tracking
-			</a>
-		</span><br />
-		<span>
-			<a target="_blank" href="tree_gen.pdf">
-				&hearts;tree generation
-			</a>
-		</span><br />
-		<span>
-			<a target="_blank" href="ui_layout.pdf">
-				ui layout
-			</a>
-		</span><br />
-		<span>
-			<a target="_blank" href="voxel_rendering.pdf">
-				&hearts;voxel_rendering
-			</a>
-		</span><br />
-	</div>
-
-	<div id="footer">
-		<span>
-			<a href="../index.html">back</a>
+	<header>
+		<div id="coolname">
+			<x>c</x><x>o</x><x>n</x><x>c</x><x>e</x><x>p</x><x>t</x><x>s</x>
+		</div>
+		<div id="hac">
+			<a href="../index.html">home</a>
 			|
-			<a onclick="debug()"><u>debug</u></a>
-		</span>
+			<a href="../about/about.html">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div class="cardgrid">
+		<a class="card" href="greedy_meshing.pdf">
+			<img src="thumbnails/greedy_meshing.png"/>
+			<h3>&hearts;greedy meshing</h3>
+			<p>mesh optimization algorithm for tilemap-like renderers</p>
+		</a>
+
+		<a class="card" href="divergence.pdf">
+			<img src="thumbnails/divergence.png"/>
+			<h3>divergence</h3>
+			<p>divergence of fluid for staggered grid implementation</p>
+		</a>
+
+		<a class="card" href="tree_generation.pdf">
+			<img src="thumbnails/tree.jpeg"/>
+			<h3>&hearts;tree generation</h3>
+			<p>procedural branch-like tree generation</p>
+		</a>
+
+		<a class="card" href="ball_balancer.pdf">
+			<img src="thumbnails/ball_balancer.jpg"/>
+			<h3>ball balancer</h3>
+			<p>responsive kinematics system to balance ball on plate</p>
+		</a>
+
+		<a class="card" href="multiplexing.pdf">
+			<img src="thumbnails/multiplexing.jpg"/>
+			<h3>&hearts;multiplexing</h3>
+			<p>saving on number of data signals based on clever organization</p>
+		</a>
+
+		<a class="card" href="raytracing.pdf">
+			<img src="thumbnails/raytracing.jpg"/>
+			<h3>raytracing</h3>
+			<p>viewport ray direction computations</p>
+		</a>
+
+		<a class="card" href="sequential_segments.pdf">
+			<img src="thumbnails/sequential_segments.png"/>
+			<h3>sequential segments</h3>
+			<p>fancy handwriting like segment-wise activation order</p>
+		</a>
+
+		<a class="card" href="shape_matching.pdf">
+			<img src="thumbnails/shape_matching.jpg"/>
+			<h3>&hearts;shape matching</h3>
+			<p>shape-keeping softbody physics algorithm</p>
+		</a>
+
+		<a class="card" href="tracking.pdf">
+			<img src="thumbnails/tracking.webp"/>
+			<h3>&hearts;tracking</h3>
+			<p>virtual position-triangulation thru multiple camera's frame-wise differences</p>
+		</a>
+
+		<a class="card" href="ui_layout.pdf">
+			<img src="thumbnails/ui_layout.avif"/>
+			<h3>ui layout</h3>
+			<p>bounding-box modeled ui layout system</p>
+		</a>
+
+		<a class="card" href="voxel_rendering.pdf">
+			<img src="thumbnails/voxel_rendering.png"/>
+			<h3>&hearts;voxel rendering</h3>
+			<p>voxel meshing algorithm utilizing greedy meshing along 6 planes</p>
+		</a>
 	</div>
 
-	<script src="../debug.js"></script>
+	<footer>
+		&copy; 2025 Owen Harrison
+	</footer>
+
+	<script src="../click_me.js"></script>
 </body>
 </html>

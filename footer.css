@@ -1,13 +1,4 @@
-/*place footer at bottom*/
-#footer {
-	position: absolute;
-	left: 50%;
-	bottom: 3vh;
-	transform: translate(-50%, 0);
-}
-
-/*make a tags unselectable*/
-#footer span {
-	user-select: none;
-	font-size: 3vw;
+footer {
+	padding: 20px;
+	text-align: center;
 }

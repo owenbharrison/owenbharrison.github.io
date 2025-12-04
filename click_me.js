@@ -1,4 +1,4 @@
-function debug() {
+function randomizeElementColors() {
 	let elements = document.querySelectorAll("*");
 	for (let elem of elements) {
 		let r = 255 * Math.random();

@@ -1,0 +1,16 @@
+#coolname {
+	letter-spacing: 2vw;
+	font-size: 8vw;
+}
+
+	/*uhh...transition less jarring*/
+	#coolname x {
+		display: inline-block;
+		transition: transform 0.1s ease, color 0.05s ease;
+	}
+
+		/*scale header letters on hover*/
+		#coolname x:hover {
+			transform: scale(1.5);
+			color: #0077ff;
+		}
