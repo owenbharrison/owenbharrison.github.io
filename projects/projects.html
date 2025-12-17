@@ -27,119 +27,59 @@
 		</div>
 	</header>
 
-	<div class="cardgrid">
-		<a class="card" href="tracking/index.html">
-			<img src="thumbnails/tracking.png" />
-			<h3>&hearts;tracking</h3>
-			<p>3d virtual position-triangulation thru multiple camera's frame-wise differences</p>
-		</a>
-
-		<a class="card" href="particles/index.html">
-			<img src="thumbnails/particles.png" />
-			<h3>particles</h3>
-			<p>particle system with collisions using an optimized spatial hash grid</p>
-		</a>
-
-		<a class="card" href="geometrize/index.html">
-			<img src="thumbnails/geometrize.png" />
-			<h3>&hearts;geometrize</h3>
-			<p>image abstracted with shapes using a hill-climbing algorithm</p>
-		</a>
-
-		<a class="card" href="fracture/index.html">
-			<img src="thumbnails/fracture.png" />
-			<h3>fracture</h3>
-			<p>3d model mesh split by plane and retriangulated</p>
-		</a>
-
-		<a class="card" href="minesweeper/index.html">
-			<img src="thumbnails/minesweeper.png" />
-			<h3>&hearts;minesweeper</h3>
-			<p>the classic minesweeper game in 3d with intuitive orbit controls & cosmentic particle systems</p>
-		</a>
-
-		<a class="card" href="cloth/index.html">
-			<img src="thumbnails/cloth.png" />
-			<h3>&hearts;cloth</h3>
-			<p>3d flag-like mass-spring cloth simulation</p>
-		</a>
-
-		<a class="card" href="eulerian_fluid/index.html">
-			<img src="thumbnails/eulerian_fluid.png" />
-			<h3>eulerian fluid</h3>
-			<p>implementation of jos stam's <i>real-time fluid dynamics for games</i></p>
-		</a>
-
-		<a class="card" href="slicer/index.html">
-			<img src="thumbnails/slicer.png" />
-			<h3>&hearts;slicer</h3>
-			<p>voxelized mesh sliced into greedymeshed prisms</p>
-		</a>
-
-		<a class="card" href="targetting/index.html">
-			<img src="thumbnails/targetting.png" />
-			<h3>targetting</h3>
-			<p>3d interactive scene with quaternion rotation, plane translation, and relative scaling</p>
-		</a>
-
-		<a class="card" href="a_star_nav/index.html">
-			<img src="thumbnails/a_star_nav.png" />
-			<h3>&hearts;a star nav</h3>
-			<p>3d open world with a* navigation system</p>
-		</a>
-
-		<a class="card" href="asteroids/index.html">
-			<img src="thumbnails/asteroids.png" />
-			<h3>asteroids</h3>
-			<p>the classic asteroids game with a pseudo-shader to imitate text-based console graphics</p>
-		</a>
-
-		<a class="card" href="pixels/index.html">
-			<img src="thumbnails/pixels.png" />
-			<h3>&hearts;pixels</h3>
-			<p>orientable bitmaps with physics and collision detection</p>
-		</a>
-
-		<a class="card" href="raycasting/index.html">
-			<img src="thumbnails/raycasting.png" />
-			<h3>raycasting</h3>
-			<p>casting shadows in all directions using dda(digital differential analyzer) tilemap ray intersections</p>
-		</a>
-
-		<a class="card" href="smoke/index.html">
-			<img src="thumbnails/smoke.png" />
-			<h3>&hearts;smoke</h3>
-			<p>attempt to procedurally imitate smoke-like effects with a particle system</p>
-		</a>
-
-		<a class="card" href="steering_behaviors/index.html">
-			<img src="thumbnails/steering_behaviors.png" />
-			<h3>steering behaviors [wip]</h3>
-			<p>implementation of craig reynolds' boids with a mouse fleeing rule</p>
-		</a>
-
-		<a class="card" href="planet_game/index.html">
-			<img src="thumbnails/planet_game.png" />
-			<h3>planet game [wip]</h3>
-			<p>3d spherical-coordinate based walking control system for an upcoming game</p>
-		</a>
-
-		<a class="card" href="jelly_car_clone/index.html">
-			<img src="thumbnails/jelly_car_clone.png" />
-			<h3>jelly car clone [wip]</h3>
-			<p>implementation of walaber entertainment's softbody physics system for the game <i>jelly car</i></p>
-		</a>
-
-		<a class="card" href="rigid_bodies/index.html">
-			<img src="thumbnails/rigid_bodies.png" />
-			<h3>rigid bodies [wip]</h3>
-			<p>attempt to imitate rigid body physics using sat(seperating axis theorem)</p>
-		</a>
+	<div id="cardgrid">
 	</div>
 
 	<footer>
 		&copy; 2025 Owen Harrison
 	</footer>
+
+	<script>
+		const cards = [
+			{ name: "tracking", title: "&hearts; tracking", desc: "3d virtual position-triangulation thru multiple camera's frame-wise differences", date: "nov 8, 2025" },
+			{ name: "particles", title: "particles", desc: "particle system with collisions using an optimized spatial hash grid", date: "nov 10, 2025" },
+			{ name: "geometrize", title: "&hearts; geometrize", desc: "image abstracted with shapes using a hill-climbing algorithm", date: "oct 26, 2025" },
+			{ name: "fracture", title: "fracture", desc: "3d model mesh split by plane and retriangulated", date: "nov 9, 2025" },
+			{ name: "minesweeper", title: "&hearts; minesweeper", desc: "the classic minesweeper game in 3d with intuitive orbit controls & cosmentic particle systems", date: "oct 26, 2025" },
+			{ name: "cloth", title: "&hearts; cloth", desc: "3d flag-like mass-spring cloth simulation", date: "nov 8, 2025" },
+			{ name: "eulerian_fluid", title: "eulerian fluid", desc: "implementation of jos stam's <i>real-time fluid dynamics for games</i>", date: "mar 9, 2025" },
+			{ name: "slicer", title: "&hearts; slicer", desc: "voxelized mesh sliced into greedymeshed prisms", date: "nov 17, 2025" },
+			{ name: "targetting", title: "targetting", desc: "3d interactive scene with quaternion rotation, plane translation, and relative scaling", date: "nov 15, 2025" },
+			{ name: "a_star_nav", title: "&hearts; a star nav", desc: "3d open world with a* navigation system", date: "jul 2, 2025" },
+			{ name: "asteroids", title: "asteroids", desc: "the classic asteroids game with a pseudo-shader to imitate text-based console graphics", date: "sep 21, 2025" },
+			{ name: "pixels", title: "&hearts; pixels", desc: "orientable bitmaps with physics and collision detection", date: "may 4, 2025" },
+			{ name: "raycasting", title: "raycasting", desc: "casting shadows in all directions using dda(digital differential analyzer) tilemap ray intersections", date: "feb 26, 2025" },
+			{ name: "smoke", title: "&hearts; smoke", desc: "attempt to procedurally imitate smoke-like effects with a particle system", date: "apr 1, 2025" },
+			{ name: "steering_behaviors", title: "steering behaviors", desc: "implementation of craig reynolds' <i>boids</i> with a mouse fleeing rule", date: "sep 9, 2025" },
+			{ name: "planet_game", title: "planet game", desc: "3d spherical-coordinate based walking control system for an upcoming game", date: "oct 20, 2025" },
+			{ name: "jelly_car_clone", title: "jelly car clone", desc: "implementation of walaber entertainment's softbody physics system for the game <i>jelly car</i>", date: "apr 10, 2025" },
+			{ name: "rigid_bodies", title: "rigid bodies", desc: "attempt to imitate rigid body physics using sat(seperating axis theorem)", date: "aug 24, 2025" },
+		];
+
+		let cardgrid = document.getElementById("cardgrid");
+
+		//visual studio does NOT know how to format this.
+		cards.forEach(c => {
+			let src = "https://github.com/owenbharrison/simsAndGames/tree/main/"+c.name;
+			cardgrid.innerHTML+=`
+			<div class="card">
+			<div class="thumb">
+			<img src="thumbnails/${c.name}.png"/>
+			</div>
+			<div class="content">
+			<h2>${c.title}</h2>
+			<span>
+			<a href="${c.name}/index.html">&#9655; run</a>
+			|
+			<a target="_blank" href="${src}">see code</a>
+			</span>
+			<p>${c.desc}</p>
+			<span class="date">${c.date}</span>
+			</div>
+			</div>
+			`;
+		});
+	</script>
 
 	<script src="../click_me.js"></script>
 </body>

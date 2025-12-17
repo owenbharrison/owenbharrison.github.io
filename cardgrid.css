@@ -1,26 +1,70 @@
-.cardgrid {
+#cardgrid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 20px;
-	padding: 40px;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 1.25rem;
 }
 
 .card {
-	background-color: #eee;
-	padding: 20px;
-	box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+	height: 360px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 	transition: transform 0.2s;
-	text-decoration: none;
-	color: inherit;
 }
 
-	.card:hover {
-		transform: translateY(-5px);
-	}
+.card:hover {
+	transform: translateY(-5px);
+}
 
-	.card img {
-		width: 100%;
-		height: 50%;
-		object-fit: cover;
-		margin-bottom: 10px;
-	}
+.thumb {
+	padding: 0.75rem;
+	height: 40%;
+	flex-shrink: 0;
+}
+
+.thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.thumb, .content {
+	background-color: #dcdcdc;
+}
+
+.content {
+	flex: 1;
+	padding: 0.9rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	overflow: hidden;
+}
+
+.card h2 {
+	font-size: 1.2rem;
+	line-height: 1.2;
+	margin: 0;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.card p {
+	font-size: 0.875rem;
+	line-height: 1.4;
+	margin: 0;
+	opacity: 0.85;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.date {
+	margin-top: auto;
+	font-size: 0.75rem;
+	opacity: 0.6;
+}
