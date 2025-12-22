@@ -12,26 +12,35 @@
 	<link rel="stylesheet" href="footer.css">
 
 	<style>
-		#horizontalcards {
-			display: flex;
-			gap: 20px;
-			padding: 60px 20px;
+		#cardgrid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.25rem;
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 20px;
 		}
 
-			#horizontalcards a {
-				flex: 1;
-				padding: 40px 20px;
-				background-color: #eee;
-				transition: transform 0.2s;
-				text-align: center;
-				box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-				text-decoration: none;
-				color: inherit;
+		@media (max-width: 600px) {
+			#cardgrid {
+				grid-template-columns: 1fr;
 			}
+		}
 
-				#horizontalcards a:hover {
-					transform: translateY(-5px);
-				}
+		.card {
+			height: 200px;
+			padding: 0.75rem;
+			background-color: #dcdcdc;
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+			transition: transform 0.2s;
+			text-align:center;	
+			text-decoration: none;
+			color: inherit;
+		}
+
+		.card:hover {
+			transform: translateY(-5px);
+		}
 	</style>
 </head>
 <body>
@@ -39,6 +48,7 @@
 		<div id="coolname">
 			<x>o</x><x>w</x><x>e</x><x>n</x><x>h</x><x>a</x><x>r</x><x>r</x><x>i</x><x>s</x><x>o</x><x>n</x>
 		</div>
+
 		<div id="hac">
 			<a>home</a>
 			|
@@ -48,25 +58,27 @@
 		</div>
 	</header>
 
-	<div id="horizontalcards">
-		<a href="concepts/concepts.html">
-			<h2><br />concepts</h2>
-			<p>notes, theories, &amp;<br />my thought process</p>
+	<div id="cardgrid">
+		<a class="card" href="sims_and_games/sims_and_games.html">
+			<h2>&hearts; sims & games</h2>
+			<p>physics simulations &amp; game prototypes compiled with emscripten for your viewing pleasure</p>
 		</a>
-
-		<a href="projects/projects.html">
-			<h1>projects</h1>
-			<p>emscripten-compiled<br />sims &amp; games<br />for your<br />viewing pleasure</p>
+		<a class="card" href="shaders/shaders.html">
+			<h2>shaders</h2>
+			<p>real-time non-photo-realistic(npr) post-processing effects</p>
 		</a>
-
-		<a target="_blank" href="https://docs.google.com/document/d/1JdAntc3P8q_ZWWVo7FOBkkEGXFBVYO1JFs9O0oej5a8/edit?usp=sharing">
-			<h2><br />ideas</h2>
-			<p>future works &amp;<br />half-baked ideas</p>
+		<a class="card" href="concepts/concepts.html">
+			<h2>concepts</h2>
+			<p>notes, theories, &amp; my thought process</p>
+		</a>
+		<a class="card" target="_blank" href="https://docs.google.com/document/d/1JdAntc3P8q_ZWWVo7FOBkkEGXFBVYO1JFs9O0oej5a8/edit?tab=t.0">
+			<h2>ideas</h2>
+			<p>future works &amp; half-baked ideas</p>
 		</a>
 	</div>
 
 	<footer>
-		&copy; 2025 Owen Harrison
+		&copy; 2025 owen harrison
 	</footer>
 
 	<script src="click_me.js"></script>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>s h a d e r s</title>
+
+	<link rel="stylesheet" href="../header.css">
+	<link rel="stylesheet" href="../coolname.css">
+	<link rel="stylesheet" href="../hac.css">
+	<link rel="stylesheet" href="../cardgrid.css">
+	<link rel="stylesheet" href="../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>s</x><x>h</x><x>a</x><x>d</x><x>e</x><x>r</x><x>s</x>
+		</div>
+
+		<div id="hac">
+			<a href="../index.html">home</a>
+			|
+			<a href="../about/about.html">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="cardgrid">
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script>
+		const cards = [
+			{ name: "halftone_rgb", title: "&hearts; halftone rgb", id: "flyyWd", desc: "phase shifted dot lattices to emulate dithering on red, green, and blue channels", date: "jan 8, 2023" },
+			{ name: "kuwahara_minimal", title: "kuwahara minimal", id: "dtBGRd", desc: "painterly noise-smoothing filter using variance-minimized neighborhood selection", date: "jan 14, 2023" },
+			{ name: "voronoi_crosshatch", title: "&hearts; voronoi crosshatch", id: "w3cGWn", desc: "sketch-inspired crosshatching using base hatch direction from voronoi cells", date: "jun 28, 2025" },
+			{ name: "6x6_ascii", title: "6x6 ascii effect", id: "WfBfWV", desc: "ascii art effect using luminance to sample characters ranked by density with int-packed 6x6 bitmap font", date: "sep 27, 2025" },
+			{ name: "edge_aligned_blur", title: "&hearts; edge aligned blur(eab)", id: "DdcSDf", desc: "painterly edge-enhancing swirly aesthetic", date: "apr 3, 2023" },
+			{ name: "another_ht", title: "&hearts; halftone testing", id: "cldyWS", desc: "generalized rgb halfoning applied to random triple-gradient inside a circle", date: "nov 10, 2023" },
+			{ name: "mean_of_least_variance", title: "&hearts; mean of least variance(mlv)", id: "mtSSzK", desc: "painterly smoothing filter using variance-minimized neighborhood selection with dithering & posterization", date: "feb 13, 2023" },
+			{ name: "difference_of_gaussians", title: "difference of gaussians(dog)", id: "msySR1", desc: "painterly edge extraction via subtraction of multi-scale gaussian blurs to isolate contrast", date: "apr 5, 2023" },
+			{ name: "generative_art", title: "&hearts; generative art", id: "ds3SzN", desc: "abstract overlaid rectangles oriented using image gradients via the sobel operator", date: "mar 22, 2023" },
+			{ name: "crt_effect", title: "&hearts; crt effect", id: "DlfSz8", desc: "retro crt effect with barrel distortion, chromatic aberration, scanlines, & vignette", date: "jan 20, 2023" },
+			{ name: "edge_tangent_flow", title: "edge tangent flow(etf)", id: "dsd3zs", desc: "coherent flow field generation using image gradients via the sobel operator", date: "mar 5, 2023" },
+			{ name: "electric_field_lines", title: "electric field lines", id: "csK3W3", desc: "academic use case for etf: visualizing vector field lines like those found in electromagnetism", date: "mar 20, 2023" },
+			{ name: "edge_halftoning", title: "edge halftoning", id: "mtKBRh", desc: "halftoned edge detection with hue based on image gradient direction via the sobel operator", date: "dec 6, 2023" },
+			{ name: "voronoi_mask", title: "voronoi mask", id: "WXc3DH", desc: "censoring filter using color from center of voronoi cell", date: "jun 29, 2025" },
+			{ name: "cmyk_halftoning", title: "cmyk halftoning", id: "t3dGzr", desc: "print-inspired halftoning on cyan, magenta, yellow, and black channels", date: "jun 25, 2025" },
+			{ name: "selective_depth_of_field", title: "selective depth of field(dof)", id: "clySWw", desc: "gaussian blur using strength as distance from rectangular region of image", date: "jun 7, 2023" },
+			{ name: "rgb_vs_cmyk_halftoning", title: "rgb vs cmyk halftoning", id: "dlcGWn", desc: "comparison between color representations in halftoning", date: "apr 22, 2023" },
+			{ name: "random_glitch_effect", title: "random glitch effect", id: "3ffBz2", desc: "video corruption effect with signal tearing, chromatic aberration, & vignette", date: "sep 13, 2025" },
+		];
+
+		let cardgrid = document.getElementById("cardgrid");
+
+		//visual studio does NOT know how to format this.
+		cards.forEach(c => {
+			let src = "https://github.com/owenbharrison/simsAndGames/tree/main/" + c.name;
+			cardgrid.innerHTML += `
+					<div class="card">
+					<div class="thumb">
+					<img src="thumbnails/${c.name}.png"/>
+					</div>
+					<div class="content">
+					<h2>${c.title}</h2>
+					<span>
+					<a target="_blank" href="https://www.shadertoy.com/view/${c.id}">see shadertoy</a>
+					</span>
+					<p>${c.desc}</p>
+					<span class="date">${c.date}</span>
+					</div>
+					</div>
+					`;
+		});
+	</script>
+
+	<script src="../click_me.js"></script>
+</body>
+</html>
