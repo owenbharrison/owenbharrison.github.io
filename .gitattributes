@@ -1,2 +1,6 @@
 *.wasm binary -text
 *.data binary -text
+
+*.js    text eol=lf
+*.html  text eol=lf
+*.css   text eol=lf
