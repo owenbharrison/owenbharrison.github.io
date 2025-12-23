@@ -1,2 +1,2 @@
-*.wasm binary
-*.data binary
+*.wasm binary -text
+*.data binary -text
