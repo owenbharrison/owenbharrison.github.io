@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>s m o k e</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../footer.css">
+
+	<style>
+		#content {
+			margin: auto;
+			background-color: #dcdcdc;
+			padding: 20px;
+			max-width: 800px;
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>s</x><x>m</x><x>o</x><x>k</x><x>e</x>
+		</div>
+		<div id="hac">
+			<a href="../../index.html">home</a>
+			|
+			<a href="../../about/about.html">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="content">
+		<iframe src="run.html" style="width: 100%; aspect-ratio: 4/3">
+		</iframe>
+
+		<h1>usage</h1>
+		<p>
+			Drag the left mouse to emit particles.
+			<br />
+			Drag the right mouse to emit rainbow particles.
+			<br />
+			Press the middle mouse to emit a bomb of particles.
+			<br />
+			Press E to toggle the emitters position to the mouse.
+			<br />
+			Press S to toggle simple sprite rendering.
+			<br />
+			Press P to pause/play the simulation.
+		</p>
+
+		<h1>overview</h1>
+		<p>
+			This project uses a simple particle system of rotated rectangles.
+			Each particle is spawned with an initial velocity, size, rotation, lifespan, and age.
+			Over time, the rectangles rise with buoyancy, grow, and spin slower.
+			Their relative life is factored into their transparency. This makes the effect convincing.
+			Once a particle&#39;s age is greater than its lifespan, it is removed.
+		</p>
+
+		<h1>motivation</h1>
+		<p>
+			This project could be used in game development as a steam/smog effect.
+		</p>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>

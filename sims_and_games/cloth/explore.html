@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>c l o t h</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>c</x><x>l</x><x>o</x><x>t</x><x>h</x>
+		</div>
+		<div id="hac">
+			<a href="../../index.html">home</a>
+			|
+			<a href="../../about/about.html">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="run.html" style="width: 100%; aspect-ratio: 4/3">
+		</iframe>
+
+		<h1>usage</h1>
+		<p>
+			Use WASD to move the camera around.
+			<br />
+			Use ARROWS to look around.
+			<br />
+			Drag the left cursor to interact with the scene.
+			<br />
+			Press P to play/pause the simulation.
+			<br />
+			Press O to toggle the outline view. This shows the springs.
+			<br />
+			Press B to toggle the bounding box view. This encompasses the entire cloth.
+			<br />
+			Press 1-8 to change the flag sprite.
+			<br />
+			Press L to set the scene light position.
+		</p>
+
+		<h1>overview</h1>
+		<p>
+			I made this project to try and simulate a 3d cloth with wind forces.
+			<br />
+			<br />
+			To simulate each particle, I store its position, velocity, and acceleration.
+			Each frame, gravity and a random wind force computed using
+			<a href="https://en.wikipedia.org/wiki/Perlin_noise">perlin noise</a>
+			is applied to the acceleration.<i>(note: each particle has a mass of 1 for simplicity.)</i>
+			<br />
+			<br />
+			On program startup, a random resolution determines the cell spacing.
+			These particles are placed in a grid along the xy plane.
+			To construct the cloth shape, springs are placed between particles.
+			Each vertical and horizontal adjacent pair is connected.
+			Also, both diagonals are connected as well, helping the stability:
+			<img class="figure" src="figure1.png" />
+			<br />
+			To render the surface of the cloth, the grid is tessellated into triangles.
+			To texture the cloth with a flag sprite, in the grid step, the normalized uv coordinates are used to sample the given texture.
+			<img class="figure" src="figure2.png" />
+			<br />
+			Each frame, all springs are updated using
+			<a href="https://www.youtube.com/watch?v=kyQP4t_wOGI">hookes-law and damping</a>.
+			Then I use a
+			<a href="https://en.wikipedia.org/wiki/Verlet_integration">verlet integration</a>
+			scheme to update the particles.
+			<br />
+			<br />
+			To make the mouse interaction, I first get the mouse ray using the camera&#39;s inverse-view projection matrix.
+			Let the vector from the camera to the particle be A. Let the mouse ray be B.
+			Then I calculate the parallel and perpendicular distances using the following:
+			<br />
+			<img class="figure" src="figure3.png" />
+			Using this for each particle, I can filter by some selection radius (y&lt;r) and choose the smallest x.
+			On mouse down, I store the camera direction and the initial particle position as the hit plane.
+			Then while dragging, I apply a spring force between the particle P and the intersection between the hit plane and the mouse ray M:
+			<img class="figure" src="figure4.png" />
+		</p>
+
+		<h1>motivation</h1>
+		<p>
+			This project could be used as any fabric in game development, such as a character cloak or cape.
+			It could also be used in cgi, or virtual fashion software to test new designs, garments, and materials.
+		</p>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>

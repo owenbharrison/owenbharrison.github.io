@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>t r a c k i n g</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>t</x><x>r</x><x>a</x><x>c</x><x>k</x><x>i</x><x>n</x><x>g</x>
+		</div>
+		<div id="hac">
+			<a href="../../index.html">home</a>
+			|
+			<a href="../../about/about.html">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="run.html" style="width: 100%; aspect-ratio: 4/3">
+		</iframe>
+
+		<h1>usage</h1>
+		<p>
+			Use WASD to move the camera around.
+			<br />
+			Use ARROWS to look around.
+			<br />
+			Press Enter to toggle the model&#39;s spinning.
+			<br />
+			Press G to toggle the model movement gizmo.
+			<br />
+			&emsp;When it is active:
+			<br />
+			&emsp;Drag the arrows to move along an axis,
+			<br />
+			&emsp;Drag the rectangles to move it along a plane.
+			<br />
+			Press R to toggle the camera render view.
+			<br />
+			&emsp;This shows you what each camera sees.
+			<br />
+			Press F to toggle the camera frustum view.
+			<br />
+			&emsp;This shows you each camera&#39;s field of view.
+		</p>
+
+		<h1>overview</h1>
+		<p>
+			This project uses a set of virtual cameras in 3d space to try and triangulate detected movement in a scene.
+			<br />
+			<br />
+			Each frame, each camera takes a photo.
+			For each camera, the pixel-wise difference is taken between its previous photo, and the current one.
+			These differences are used to calculate a weighted average in the photo&#39;s screen space of where the most pixels changed.
+			Then, a ray is projected from camera&#39;s position thru that point.
+			<i>(note: if the difference is negligible, no ray is cast.)</i>
+			<br />
+			<img class="figure" src="figure1.png" />
+			Then, the intersection of each camera&#39;s rays is found using
+			<a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient-descent</a>.
+			This intersection point should be the point in 3d space where the object was moving!
+			<br />
+			<br />
+			The rays are shown in white, and the intersection point is shown as rgb axes.
+			<i>(note: if there are &lt;2 rays, no axes is shown.)</i>
+			<br />
+			<br />
+			For those wondering, the program simulates the calibration of each camera to calculate its focal length at program startup.
+			I did this because in the real world, if you were to set up such a system using cheap cameras, their focal length is rarely known.
+		</p>
+
+		<h1>motivation</h1>
+		<p>
+			Imagine you are a farmer, and pesky crows keep attacking your crop.
+			You could place 8 cheap cameras around your plot, measure their relative positions.
+			Then with this system you could monitor the crow positions and make the scarecrow move to scare them away.
+		</p>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>

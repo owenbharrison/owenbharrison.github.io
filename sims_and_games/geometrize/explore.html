@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>g e o m e t r i z e</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../footer.css">
+
+	<style>
+		#content {
+			margin: auto;
+			background-color: #dcdcdc;
+			padding: 20px;
+			max-width: 800px;
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>g</x><x>e</x><x>o</x><x>m</x><x>e</x><x>t</x><x>r</x><x>i</x><x>z</x><x>e</x>
+		</div>
+		<div id="hac">
+			<a href="../../index.html">home</a>
+			|
+			<a href="../../about/about.html">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+	
+	<div id="content">
+		<iframe src="run.html" style="width: 100%; aspect-ratio: 7/5">
+		</iframe>
+
+		<h1>usage</h1>
+		<p>
+			Drag the left cursor across the image to show the target vs approximation.
+			<br />
+			Reload the page to restart the process and choose a random image.
+		</p>
+
+		<h1>overview</h1>
+		<p>
+			This project uses a 
+			<a href="https://en.wikipedia.org/wiki/Hill_climbing">hill-climbing</a>
+			algorithm to try and represent the given target image with a set of randomly placed, colored, and rotated shapes.
+			<br /><br />
+			Each frame, a handful of randomly chosen shapes are stamped onto a guess image.
+			For each shape, the difference between the target and guess is computed per pixel.
+			If this total difference is lower than it previously was, that means this new shape better represents the image.
+			That new shape is therefore kept and added to the approx image.
+		</p>
+
+		<h1>motivation</h1>
+		<p>
+			After coming across the project 
+			<a href="https://github.com/fogleman/primitive">primitive</a>,
+			I wanted to see if I could make something similar, 
+			but instead of just using one type of shape per representation, 
+			I combined triangles, rectangles, and ellipses into one.
+			<br />
+			<br />
+			This project could be used as a censoring algorithm.
+			It could be modified to only run on a region of an image.
+		</p>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
