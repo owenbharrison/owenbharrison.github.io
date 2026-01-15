@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>t a r g e t i n g</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>t</x><x>a</x><x>r</x><x>g</x><x>e</x><x>t</x><x>i</x><x>n</x><x>g</x>
+		</div>
+		<div id="hac">
+			<a href="../../index.html">home</a>
+			|
+			<a href="../../about/about.html">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="run.html" style="width: 100%; aspect-ratio: 3/2">
+		</iframe>
+
+		<h1>usage</h1>
+		<p>
+			Use WASD to move the camera around.
+			<br />
+			Use ARROWS to look around.
+			<br />
+			<i>(note: mesh interaction halts camera movement.)</i>
+			<br />
+			While hovering over a mesh:
+			<br />
+			&emsp;Drag T to translate it.
+			<br />
+			&emsp;Drag R to rotate it.
+			<br />
+			&emsp;Drag E to change its extent(scale);
+			<br />
+			Press B to toggle the bounding box view.
+		</p>
+
+		<h1>overview</h1>
+		<p>
+			For this project, I wanted to experiment with the interaction between the mouse and objects in a 3d scene.
+			<br />
+			<br />
+			First I calculate the mouse ray using the mouse position in clip space times the inverse of the camera&#39;s view-projection matrix.
+			Then for each mesh, the ray-intersection is calculated(against all of its triangles) and the closest mesh is chosen for interaction.
+			The camera&#39;s forward direction is stored, as well as the point in 3d space where the ray hit.
+			Let&#39;s call this the hit plane.
+			<br />
+			<br />
+			&emsp;For translation, the previous and current mouse rays are intersected with the hit plane.
+			The difference between those points is the delta by which we update the translation of the mesh by.
+			<img class="figure" src="figure1.png" />
+			<br />
+			&emsp;For rotation, the initial mouse position is stored.
+			Let&#39;s call this C.
+			Let A be the vector from C to the previous mouse position.
+			Let B be the vector from C to the current mouse position.
+			Then we find the angle between the two:
+			<img class="figure" src="figure2.png" />
+			This is usually referred to as the
+			<a href="https://en.wikipedia.org/wiki/Angle#Signed_angles">signed angle</a>.
+			This angle is then the delta by which we rotate the mesh.
+			Since this rotation is about the hit plane norm, we need to use quaternions to avoid gimbal lock.
+			To do this, I use the axis angle formula for quaternions, and then convert the quaternion to a rotation matrix to use in the model matrix of the mesh.
+			<br />
+			<br />
+			&emsp;For scaling, the initial mouse position is stored as A.
+			The screen space center of the mesh is stored as C.
+			The current mouse position is stored as B.
+			Then the relative difference in vector magnitude between the current and initial is calculated:
+			<img class="figure" src="figure3.png" />
+			This value s is the temporary scale which we use to update the model matrix.
+		</p>
+
+		<h1>motivation</h1>
+		<p>
+			When using any 3d software, scene interaction is not trivial due to the nature of depth being hard to account for.
+			This system can help make movements more intuitive.
+		</p>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
