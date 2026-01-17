@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>s o k o l</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../gallery.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>s</x><x>o</x><x>k</x><x>o</x><x>l</x>
+		</div>
+		<div id="hac">
+			<a href="../../index.html">home</a>
+			|
+			<a href="../../about/about.html">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="run.html" style="width: 100%; aspect-ratio: 4/3" tabindex="0">
+		</iframe>
+
+		<h1>Usage</h1>
+		<p>
+			Use WASD to move the camera around.
+			<br />
+			Use Shift/Space to move the camera up/down.
+			<br />
+			Use ARROWS or left cursor to look around.
+			<br />
+			Press Home to look at the scene origin.
+			<br />
+			Press O to toggle mesh outlines.
+			<br />
+			Press L to set the scene light position.
+			<br />
+			Press F to toggle the font render test.
+			<br />
+			Use K/R/G/B to set the black/red/green/blue font positions.<br />
+		</p>
+
+		<h1>Overview</h1>
+		<p>
+			<a href="https://github.com/floooh/sokol">sokol</a>
+			is a lightweight, cross-platform, single-header C/C++ framework that wraps modern 3D graphics APIs(OpenGL, D3D11, Metal, Vulkan) along with windowing and input into a simple, portable abstraction.
+			<br />
+			<br />
+			This project serves as a testbed for some of my most recent 3d-graphics related algorithms.
+			<br />
+			Some of the things I have worked on with it:
+			<br />
+			&bull;
+			OBJ file loading
+			<br />
+			&bull;
+			Blinn-Phong
+			shading
+			<br />
+			&bull; Solids of Revolution construction
+			<br />
+			&bull;
+			Cube mapping
+			<br />
+			&bull; Custom font rendering pipeline
+		</p>
+
+		<h1>Gallery</h1>
+		<div id="gallery">
+			<img src="gallery/triangle.png" />
+			<img src="gallery/cube.png" />
+			<img src="gallery/meshes.png" />
+			<img src="gallery/billboard.png" />
+			<img src="gallery/offscreen.png" />
+			<img src="gallery/skybox_dir.png" />
+			<img src="gallery/skybox_debug.jpg" />
+			<img src="gallery/cubemap.png" />
+			<img src="gallery/outlines.png" />
+		</div>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
