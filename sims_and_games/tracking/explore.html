@@ -30,9 +30,11 @@
 		<iframe src="run.html" style="width: 100%; aspect-ratio: 4/3">
 		</iframe>
 
-		<h1>usage</h1>
+		<h1>Usage</h1>
 		<p>
 			Use WASD to move the camera around.
+			<br />
+			Use Shift/Space to move the camera up/down.
 			<br />
 			Use ARROWS to look around.
 			<br />
@@ -55,7 +57,7 @@
 			&emsp;This shows you each camera&#39;s field of view.
 		</p>
 
-		<h1>overview</h1>
+		<h1>Overview</h1>
 		<p>
 			This project uses a set of virtual cameras in 3d space to try and triangulate detected movement in a scene.
 			<br />
@@ -80,11 +82,16 @@
 			I did this because in the real world, if you were to set up such a system using cheap cameras, their focal length is rarely known.
 		</p>
 
-		<h1>motivation</h1>
+		<h1>Possible Use Case</h1>
 		<p>
 			Imagine you are a farmer, and pesky crows keep attacking your crop.
-			You could place 8 cheap cameras around your plot, measure their relative positions.
+			You could place 8 cheap cameras around your plot, then measure their relative positions.
 			Then with this system you could monitor the crow positions and make the scarecrow move to scare them away.
+			<br />
+			<br />
+			Imagine you are a movie director, and your motion capture software stops working.
+			You could place 8 cheap cameras around your studio, then measure their relative positions.
+			Then with this system you could monitor the actor positions and map a cgi skeleton to their poses.
 		</p>
 	</div>
 
