@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>r e t r o c l o c k</title>
+
+	<link rel="stylesheet" href="../header.css">
+	<link rel="stylesheet" href="../coolname.css">
+	<link rel="stylesheet" href="../hac.css">
+	<link rel="stylesheet" href="../explore.css">
+	<link rel="stylesheet" href="../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>r</x><x>e</x><x>t</x><x>r</x><x>o</x><x>c</x><x>l</x><x>o</x><x>c</x><x>k</x>
+		</div>
+		<div id="hac">
+			<a href="../index.html">home</a>
+			|
+			<a href="../about/about.html">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<img src="thumbnail.png" style="width: 100%" />
+
+		<h1>Overview</h1>
+		<p>
+			This is an electromechanical 7-segment retro nightstand clock.
+			For this project, I wanted to experiment with embedded hardware, real-time-clock (RTC) modules, and printed circuit board (PCB) design.
+			<br />
+			<br />
+			After coming across a
+			<a href="https://www.youtube.com/watch?v=_xW0PrurLq0">video</a>
+			by Proto G Engineering, I was immediately enamored with these displays.
+			I requested a quote from the company
+			<a href="https://flipdots.com/en/home/">AlfaZeta</a>,
+			which makes them.
+			<br />
+			<br />
+			<img src="figure/module.png" class="figure" />
+			<br />
+			Originally, I wanted to make an HH:MM:SS clock, which would have needed 6 modules.
+			I only ended up using 4 of them in an HH:MM format because the sound of updating the displays every second would surely drive anyone crazy.
+		</p>
+
+		<h1>Segment Control</h1>
+		<p>
+			Think of each segment as a solenoid.
+			The polarity across a segment needs to be flipped in order to change its state.
+			Once changed, it stays like this indefinitely.
+			This is why in the thumbnail photo it displays a time, even when not plugged in.
+			This polarity flipping device is called an H-bridge:
+			<br />
+			<br />
+			<img src="figure/h_bridge.png" class="figure" />
+			<br />
+			Since each module has 7x 2-pin solenoids, I tied one of each of their pins together.
+			This means I have one common pin, and 1 pin per segment.
+			Then, I can use a half-h bridge on each one of those connections.
+			This is because the logic signals run at 5V, and the segment needs 12V to flip.
+			I ended up using L293D quadrule half-H chips.
+		</p>
+
+		<h1>Module Control</h1>
+		<p>
+			To combine the above logic and display the individual segments into legible numbers, I need a segment layout:
+			<br />
+			<br />
+			<img src="figure/layout.png" class="figure" />
+			<br />
+			Then a simple truth table denoting which segments should be on for each hexadecimal digit can be made.
+			I didn&#39;t end up using this as it defeated the purpose of the artistic aspects of the project.
+			However, it is nice to have this here as a reference.
+			Isn&#39;t it a strange coincedence that 7-segments can also display the first 6 letters of the alphabet?
+			<br />
+			<br />
+			<img src="figure/simple_encoding.png" class="figure" />
+			<br />
+			But for my case, I wanted the number display scheme to be more aesthetic.
+			So for each digit, a list of segments can be turned on in a specific order, so it looks like they are being written.
+			Then they can be turned off in that same order to look like they are being erased.
+			<i>(note: -1 is the stop flag)</i>
+			<br />
+			<br />
+			<img class="figure" src="figure/fancy_encoding.png" />
+			<br />
+			Here is a video of that fancy writing order in action.
+			Notice that after each segment flips, the program uses purposeful delays so that the display isn&#39;t instantaneous.
+			I have a single module counting from 0-9, then a-f, then it repeats.
+			<i>(hint: turn on the audio, it sounds very satisfying!)</i>
+			<br />
+			<br />
+			<iframe class="figure" src="https://youtube.com/embed/9PKw3hj7jwo?autoplay=1&mute=1">
+			</iframe>
+			<br />
+			To wire up the modules for testing, I soldered a harness using screw terminals that just so happened to fit perfectly.
+			The white wire is the common connection that I talked about earlier.
+			This photo does a good job of also showing the solenoids on each segment.
+			<br />
+			<br />
+			<img class="figure" src="figure/harness.png" />
+		</p>
+
+		<h1>Multiple Modules</h1>
+		<p>
+			Each module needs 8 logic signals, and there are 4 modules, which means the Arduino doesn&#39;t have enough pins to run everything.
+			So for each module, I used an MCP23008 input/output (io) expander.
+			This allows me to hardwire a seperate address offset for each module.
+			Then since all three modules are on the same signal bus, I only need 5 wires to go to all of the modules:
+			Ground, 5V, serial clock (SCL), serial data (SDA), and 12V.
+			The following videos respectively show three and four of said modules counting fast.
+			<i>(photosensitivity warning: flashing lights)</i>
+			<br />
+			<br />
+			<iframe class="figure" src="https://www.youtube.com/embed/OmvLx2O-Ub0">
+			</iframe>
+			<iframe class="figure" src="https://www.youtube.com/embed/sd-9p-vhqas">
+			</iframe>
+		</p>
+
+		<h1>RTC Incorporation</h1>
+		<p>
+			To store the time even when unplugged, a RTC must be used.
+			This works because it has its own clock and battery, which is always on.
+			Every minute, the program gets the time from the clock, and if it is a multiple of 5 minutes, it clears the old time and writes the new one.
+			I did this because while satisfying, even having them update every minute is loud.
+			I also added a check for when it is nighttime(9PM-8AM) and it will only update on the hour.
+			Integrating the clock module was a pain because every time there was an error in the code, I had to update the time of the RTC such that it wasnt a few minutes behind.
+			Here is a video of it changing from 1:59 to 2:00.
+			<br />
+			<br />
+			<iframe class="figure" src="https://www.youtube.com/embed/lNVV9ICvqRo?autoplay=1&mute=1"></iframe>
+		</p>
+		
+		<h1>PCB Design</h1>
+		<p>
+			Each module needs a PCB to rest on, and each one of those needs to house the control logic.
+			I chose to make a PCB that fits onto the display, and uses pin headers to connect the the controllers.
+			The controllers house the half-h-bridges and the io expanders.
+			Here is my handmade version of the driver:
+			<br />
+			<br />
+			<img class="figure" src="figure/handmade_driver.png" />
+			<br />
+			This was a real pain to solder together, so I figured I should use a service like
+			<a href="https://www.pcbway.com/">PCBWay</a>
+			to make the traces for me.
+			I did like the layout of it, and that can be seen in the layout of the final PCB.
+			I also chose to add light emitting diodes (LED) to all of the signal lines.
+			This choice was for both debugging and I thought it looked cool.
+			<br />
+			<br />
+			<img class="figure" src="figure/driver_and_holder_pcb.png" />
+			<br />
+			<img class="figure" src="figure/soldered_pcb.png" />
+			<br />
+			I had to lift each io expander up from the PCB and solder jumpers to its power input because I made a small mistake with the PCB.
+			Somewhat of a hacky fix, but it ended up working out in the end.
+			<br />
+			<br />
+			Then those 4 controllers each sit on a frame that holds them all together.
+			While testing, this is the setup that I used to lay them all out.
+			I didn&#39;t end up ordering a PCB for this since there would only be one of them.
+
+			Notice the green wires being used as the address offsets.
+			<br />
+			<br />
+			<img class="figure" src="figure/connected_modules.png" />
+		</p>
+
+		<h1>The Enclosure</h1>
+		<p>
+			I knew acrylic would be the right way to go because it is simple enough to laser-cut.
+			My first go at the enclosure was not very promising.
+			I was mainly trying to see if the laser cutter worked, and the types of tolerances that I would need to account for in the final design.
+			<br />
+			<br />
+			<img class="figure" src="figure/bad_enclosure.png" />
+			<br />
+			I modeled all of the components in
+			<a href="https://www.onshape.com/en/">OnShape</a>,
+			and then blocked out a simple boxy enclosure to contain everything.
+			Then I thickened each face into its own part.
+			I used the LaserJoint addon to create simple panels with puzzle like joints.
+			Then I used the AutoLayout addon to flatten them onto a sheet to export to the laser cutter.
+			<br />
+			<br />
+			<img class="figure" src="figure/assem_combined.png" />
+			<br />
+			If you are wondering why the side view is C shaped, do not fret!
+			It is very intentional.
+			Since this is a nightstand clock, I was planning on having this be a place where I could place my watch:
+			<br />
+			<br />
+			<img class="figure" src="figure/assem_watch_iso.png" />
+			<br />
+			Also, while some have said it looks tacky, I like the idea of being able to see inside the clock.
+			I spent a lot of time on it, and its cool to see whats going on inside, even if its just electronics.
+			Here is the exploded view:
+			<br />
+			<br />
+			<img class="figure" src="figure/exploded_iso.png" />
+			<br />
+		</p>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../click_me.js"></script>
+</body>
+</html>
