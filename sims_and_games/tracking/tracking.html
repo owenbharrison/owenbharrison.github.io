@@ -69,28 +69,31 @@
 			<i>(note: if the difference is negligible, no ray is cast.)</i>
 			<br />
 			<img class="figure" src="figure1.png" />
-			Then, the intersection of each camera&#39;s rays is found using
+			Then, the intersection of all said camera rays is found using
 			<a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient-descent</a>.
+			This is necessary because tiny amounts of error in the system make the rays skew against one another.
+			The sum of distances between a candidate point and each ray is used as the cost function to minimize.
 			This intersection point should be the point in 3d space where the object was moving!
-			<br />
-			<br />
-			The rays are shown in white, and the intersection point is shown as rgb axes.
 			<i>(note: if there are &lt;2 rays, no axes is shown.)</i>
 			<br />
 			<br />
-			For those wondering, the program simulates the calibration of each camera to calculate its focal length at program startup.
-			I did this because in the real world, if you were to set up such a system using cheap cameras, their focal length is rarely known.
+			In the program, the camera rays are shown in white, and the intersection point is shown as rgb axes.
+			The purple wireframes around each camera denote its field of view.
+			<br />
+			<br />
+			For those wondering, the program simulates the calibration of each camera to calculate its focal length during program startup.
+			I did this because in the real world, if you were to set up such a system using cheap cameras, their focal length is rarely known, and hence must be measured.
 		</p>
 
 		<h1>Possible Use Case</h1>
 		<p>
 			Imagine you are a farmer, and pesky crows keep attacking your crop.
-			You could place 8 cheap cameras around your plot, then measure their relative positions.
+			You could place several cheap cameras around your plot, then measure their relative positions and orientations.
 			Then with this system you could monitor the crow positions and make the scarecrow move to scare them away.
 			<br />
 			<br />
 			Imagine you are a movie director, and your motion capture software stops working.
-			You could place 8 cheap cameras around your studio, then measure their relative positions.
+			You could place several cheap cameras around your studio, then measure their relative positions and orientations.
 			Then with this system you could monitor the actor positions and map a cgi skeleton to their poses.
 		</p>
 	</div>
