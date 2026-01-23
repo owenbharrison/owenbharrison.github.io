@@ -60,15 +60,20 @@
 			<br />
 			<img src="figure/h_bridge.png" class="figure" />
 			<br />
-			Since each module has 7x 2-pin solenoids, I tied one of each of their pins together.
-			This means I have one common pin, and 1 pin per segment.
-			Then, I can use a half-h bridge on each one of those connections.
-			This is because the logic signals run at 5V, and the segment needs 12V to flip.
-			I ended up using L293D quadrule half-H chips.
+			Imagine if I powered both A transistors, current flows through the resistor rightward.
+			On the other hand, If I powered both B transistors, current would flows through it leftward.
+			Most simple motor drivers use this circuit to flip its direction.
 		</p>
 
 		<h1>Module Control</h1>
 		<p>
+			Since each module has 7x 2-pin solenoids, I tied one of each of their pins together.
+			This means I have one common pin, and 1 pin per segment.
+			Then, I can use a half-h bridge on each one of those connections.
+			This is because the logic signals run at 5V, and the segment needs 12V to flip.
+			I ended up using two L293D quadrpule half-H chips per module.
+			<br />
+			<br />
 			To combine the above logic and display the individual segments into legible numbers, I need a segment layout:
 			<br />
 			<br />
