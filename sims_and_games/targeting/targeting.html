@@ -64,6 +64,8 @@
 			<br />
 			&emsp;For translation, the previous and current mouse rays are intersected with the hit plane.
 			The difference between those points is the delta by which we update the translation of the mesh by.
+			<br />
+			<br />
 			<img class="figure" src="figure1.png" />
 			<br />
 			&emsp;For rotation, the initial mouse position is stored.
@@ -71,7 +73,10 @@
 			Let A be the vector from C to the previous mouse position.
 			Let B be the vector from C to the current mouse position.
 			Then we find the angle between the two:
+			<br />
+			<br />
 			<img class="figure" src="figure2.png" />
+			<br />
 			This is usually referred to as the
 			<a href="https://en.wikipedia.org/wiki/Angle#Signed_angles">signed angle</a>.
 			This angle is then the delta by which we rotate the mesh.
@@ -83,7 +88,10 @@
 			The screen space center of the mesh is stored as C.
 			The current mouse position is stored as B.
 			Then the relative difference in vector magnitude between the current and initial is calculated:
+			<br />
+			<br />
 			<img class="figure" src="figure3.png" />
+			<br />
 			This value s is the temporary scale which we use to update the model matrix.
 		</p>
 

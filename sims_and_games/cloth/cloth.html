@@ -67,10 +67,14 @@
 			To construct the cloth shape, springs are placed between particles.
 			Each vertical and horizontal adjacent pair is connected.
 			Also, both diagonals are connected as well, helping the stability:
+			<br />
+			<br />
 			<img class="figure" src="figure1.png" />
 			<br />
 			To render the surface of the cloth, the grid is tessellated into triangles.
 			To texture the cloth with a flag sprite, in the grid step, the normalized uv coordinates are used to sample the given texture.
+			<br />
+			<br />
 			<img class="figure" src="figure2.png" />
 			<br />
 			Each frame, all springs are updated using
@@ -84,10 +88,14 @@
 			Let the vector from the camera to the particle be A. Let the mouse ray be B.
 			Then I calculate the parallel and perpendicular distances using the following:
 			<br />
+			<br />
 			<img class="figure" src="figure3.png" />
+			<br />
 			Using this for each particle, I can filter by some selection radius (y&lt;r) and choose the smallest x.
 			On mouse down, I store the camera direction and the initial particle position as the hit plane.
 			Then while dragging, I apply a spring force between the particle P and the intersection between the hit plane and the mouse ray M:
+			<br />
+			<br />
 			<img class="figure" src="figure4.png" />
 		</p>
 
