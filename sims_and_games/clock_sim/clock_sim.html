@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>c l o c k s i m</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>c</x><x>l</x><x>o</x><x>c</x><x>k</x><x>s</x><x>i</x><x>m</x>
+		</div>
+		<div id="hac">
+			<a href="../../index.html">home</a>
+			|
+			<a href="../../about/about.html">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="run.html" style="width: 100%; aspect-ratio: 4/3">
+		</iframe>
+
+		<h1>Usage</h1>
+		<p>
+			Press G to toggle the gpio view. This is the data that gets sent to the modules.
+			<br />
+			Press T to toggle the task view. This is the queue of operations to process.
+		</p>
+
+		<h1>Overview</h1>
+		<p>
+			This project is a simulation of the
+			<a href="../../retro_clock/retro_clock.html">retro clock</a>
+			that that I made.
+			<br />
+			<br />
+			The Arduino code of the physical clock uses plenty of delays, so as to get the satisfying click patterns of the segments.
+			To circumvent this usage of delays, and simulate the system in a single-threaded, non-blocking way, I used an instruction queue.
+			The core instruction of the system is a general-purpose input/output (GPIO) write, and a delay.
+			Each element of the instruction queue stores an index to the module to write to, the data to write, and a delay.
+			<br />
+			<br />
+			<img class="figure" src="figure/job_queue.png" />
+			<br />
+			The program pops the top job off the queue, writes to the module, and sets a timer to that delay.
+			Each frame, this timer decrements with the passage of time, and when it is less than zero, the cycle repeats with the next job.
+			<i>(note: A module index of -1 lets me delay the program without any GPIO writes.)</i>
+			<br />
+			<br />
+			<img class="figure" style="max-height: 360px" src="figure/handle_tasks.png" />
+		</p>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
