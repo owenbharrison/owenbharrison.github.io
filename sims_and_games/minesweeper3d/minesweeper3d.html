@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>m i n e s w e e p e r 3 d</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../gallery.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>m</x><x>i</x><x>n</x><x>e</x><x>s</x><x>w</x><x>e</x><x>e</x><x>p</x><x>e</x><x>r</x><x>3</x><x>d</x>
+		</div>
+		<div id="hac">
+			<a href="../../index.html">home</a>
+			|
+			<a href="../../about/about.html">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="run.html" style="width: 100%; aspect-ratio: 16/9">
+		</iframe>
+
+		<h1>Usage</h1>
+		<p>
+			&bull; Use the left cursor/ARROWS to orbit around.
+			<br />
+			&bull; Hover the left cursor select cells.
+			<br />
+			&bull; Press Space to sweep a cell.
+			<br />
+			&bull; Press F to flag a cell.
+			<br />
+			&bull; Press P to play/pause the game.
+			<br />
+			&bull; Press R to reset the game.
+		</p>
+
+		<h1>Overview</h1>
+		<p>
+			This is a three dimensional version of the classic puzzle game Minesweeper.
+			<br />
+			<br />
+			In 2d, each cell has 8 neighbors, but in 3d, there are 26.
+			I&#39;ve found that grid sizes ranging from 4x4x4 to 7x5x8 have a good difficulty spread.
+			Then, a challenging while not frustrating bomb/cell ratio is 1:18.
+			I intend to add a menu with selectable difficulty modes in the future.
+			<br />
+			<br />
+			<img class="figure" src="figure/2d3d.png" />
+			<br />
+			Just like in classic minesweeper, there is a timer and bomb count display.
+			This remaining bomb count display shows the number of starting bombs minus the number of flagged cells.
+			As an homage to the somewhat aggravating original, there is no safeguard against sweeping a bomb.
+			This makes it fun!
+			<br />
+			<br />
+			The voxel grid of cells is rendered by showing the faces between what is swept and what isn&#39;t.
+			The texture used per cell is either a tile or a flag.
+			The cursor is rendered as the thickened edges of a cube.
+			The numbers(hints) and cosmetic particles are rendered with billboards.
+			A billboard is a quad that uses a model matrix with a coordinate system pointed towards the camera.
+			This way the numbers always point toward the screen:
+			<br />
+			<br />
+			<img class="figure" src="figure/billboard.png" />
+			<br />
+			The game utilizes a simple cosmetic particle system to add effects when cells are swept, and when a bomb explodes.
+			White particles are used for debris, and particles with a gradient ranging from orange to black are used for the explosion.
+			The paused, won, and lost overlays purposefully use varying amounts of transparency to prevent/allow the user from seeing the game.
+			<br />
+			<br />
+			To make it seem more retro, and because I enjoy the effect, everything is first rendered into a texture.
+			Then a second pass applies a CRT effect utilizing barrel distortion, chromatic aberration, scanlines, and vignette.
+			<br />
+			<br />
+			<img class="figure" src="figure/crt.png" />
+		</p>
+
+		<h1>Gallery</h1>
+		<div id="gallery">
+			<img src="gallery/before_win.png" />
+			<img src="gallery/win.png" />
+			<img src="gallery/before_lose.png" />
+			<img src="gallery/lose.png" />
+			<img src="gallery/before_pause.png" />
+			<img src="gallery/pause.png" />
+		</div>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
