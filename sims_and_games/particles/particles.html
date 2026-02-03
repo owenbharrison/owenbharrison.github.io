@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>p a r t i c l e s</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>p</x><x>a</x><x>r</x><x>t</x><x>i</x><x>c</x><x>l</x><x>e</x><x>s</x>
+		</div>
+		<div id="hac">
+			<a href="../../index.html">home</a>
+			|
+			<a href="../../about/about.html">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="run.html" style="width: 100%; aspect-ratio: 3/2">
+		</iframe>
+
+		<h1>Usage</h1>
+		<p>
+			&bull; Press A to add particles.
+			<br />
+			&bull; Use the left cursor to grab and drag the particles.
+			<br />
+			&bull; Drag B to add a bulk of particles inside a rectangle.
+			<br />
+			&bull; Press X to remove particles.
+			<br />
+			&bull; Press G to toggle the grid render.
+			<br />
+			&bull; Press E to toggle the energy chart render.
+			<br />
+			&bull; Press I to toggle the image overlay:
+			<br />
+			&emsp;&emsp;When active, this sets the particle color to sample an image.
+			<br />
+			&emsp;&emsp;Else, the particle colors are random.
+			<br />
+			&bull; Press P to pause/play the simulation.
+		</p>
+
+		<h1>Overview</h1>
+		<p>
+			This project is a simulation of dense particle collisions.
+			<br />
+			<br />
+			To do this, the collision detection system needs each particle to check every other particle for overlap.
+			This yeilds a quite inefficient number of checks that need to be computed each update step:
+			<br />
+			<br />
+			<img class="figure" style="max-height: 100px" src="figure/num.png" />
+			<br />
+			This means the number of checks goes up with the square of the number of particles.
+			To optimize this, the solver implements a spatial hash grid.
+			<br />
+			Each frame, a grid of cells sized by the largest particle is initialized.
+			Then all particles are binned into the cells based on their truncated position.
+			Then to check a particle for collisions, it need only check the surrounding 8 cells:
+			<br />
+			<br />
+			<img class="figure" src="figure/grid.png" />
+			<br />
+			The red cell houses the green particle&#39;s center.
+			The green region is the cells it needs to check: its neighbors and self.
+			This means the orange particle need not check against the green, blue, or yellow particle.
+			The clever spacing of the grid prevents this from being possible.
+			<br />
+			<br />
+			To ensure the grid is not reallocated each update step, a maximum radius is stored for the grid.
+			When particles are added or removed, this maximum radius is recalculated.
+			If it changed, the cell size is set to twice that radius and the grid is reallocated.
+			<br />
+			Each update step, two grids of integers are stored:
+			<br />
+			&emsp;grid_heads of size num_x*num_y stores the index of the <b>first</b> particle in that grid cell.
+			<br />
+			&emsp;particle_next of size max_particles stores the <b>next</b> particle in the list.
+			<br />
+			<i>(note: an index of -1 means there is no particle in the cell/last particle in list)</i>
+			<br />
+			<br />
+			This data structure is basically a grid of linked-lists.
+			The following shows how a traversal of these lists can be used to search for collisions between cells (i1, j1) and (i2, j2):
+			<br />
+			<br />
+			<img class="figure" src="figure/list_traversal.png" />
+			<br />
+			Checking the 8 surrounding cells is actually naive and redundant.
+			For example, cell (0, 0) checks (1, 1) and cell (1, 1) would check (0, 0).
+			To thwart this, while iterating, cells need only check themselves and the previous cells:
+			<br />
+			<br />
+			<img class="figure" src="figure/neighbors.png" />
+			<br />
+			The blue cell is the current cell.
+			The green arrows denote a cell to be checked against.
+			The red x&#39;s are the cells where a check would be superfluous.
+			<br />
+			<br />
+			The following is a way to implement such a system:
+			<br />
+			<br />
+			<img class="figure" style="max-height: 360px" src="figure/redundancy.png" />
+			<br />
+		</p>
+
+		<h1>Possible Use Case</h1>
+		<p>
+			This system can be extended to three dimensions.
+			It can also be ported to any particle system that needs to compute collisions.
+			In general, a particle system could be used to model:
+			<br />
+			&bull; Aerodynamic/hydrodynamic simulations to study drag
+			<br />
+			&bull; Wind/ocean currents for weather services
+			<br />
+			&bull; Sand/grain simulation for farming equipment
+		</p>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
