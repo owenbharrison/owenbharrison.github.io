@@ -69,8 +69,15 @@
 			<br />
 			These voxels are then &quot;combined&quot; along the xz-plane so as to construct prisms.
 			This is done using a
-			<a href="../../concepts/greedy_meshing.pdf">greedy meshing</a>
-			algorithm that constrains the block size to standard lego sizes
+			<a href="../../concepts/greedy_meshing.pdf">greedy meshing</a>.
+			The prioritized &quot;greedier-dimension&quot; is flipped between x and z every other layer.
+			This is like how bricks are laid; it makes the final build/stacking more stable.
+			<br />
+			<br />
+			<img class="figure" src="figure/brick_wall.png" />
+			<br />
+			Notice that the initial sizes given represent the real life size of a lego block.
+			Also, block sizes are constrained to the standard lego brick sizes
 			(think 1x4, 2x2, 2x4, 1x6, etc.).
 			This way each vertical slice has its own set of blocks that could be stacked on top of the pervious layer.
 		</p>
