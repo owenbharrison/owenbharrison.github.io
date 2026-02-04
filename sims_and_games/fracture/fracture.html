@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>f r a c t u r e</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../gallery.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>f</x><x>r</x><x>a</x><x>c</x><x>t</x><x>u</x><x>r</x><x>e</x>
+		</div>
+		<div id="hac">
+			<a href="../../index.html">home</a>
+			|
+			<a href="../../about/about.html">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="run.html" style="width: 100%; aspect-ratio: 3/2">
+		</iframe>
+
+		<h1>Usage</h1>
+		<p>
+			&bull; Use the W/A/S/D keys to move the camera around.
+			<br />
+			&bull; Use Shift/Space to move the camera up/down.
+			<br />
+			&bull; Press Enter to toggle the plane movement.
+			<br />
+			&bull; Press O to toggle the normal offset.
+			<br />
+			&bull; Press B to toggle the bounding box view.
+			<br />
+			&bull; Press F to toggle the triangle fill.
+			<br />
+			&bull; Press R to randomize the mesh.
+		</p>
+
+		<h1>Overview</h1>
+		<p>
+			For this project, I wanted to experiment with the procedural splitting of meshes so as to replicate the fracture of a material.
+			<br />
+			<br />
+			The core algorithm of this project revolves around the clipping of triangles about a plane.
+			To determine which side of the plane a vertex is on, the dot product can be used.
+			Let p be any triangle vertex.
+			If this dot product is greater than zero, p is front of the plane, else behind.
+			<br />
+			<br />
+			<img class="figure" style="max-height: 100px" src="figure/dot_prod.png" />
+			<br />
+			This isn&#39;t the whole story.
+			There are a few cases that we need to cover.
+			There is the case that the plane completely misses the triangle.
+			If this happens, the side that its on is the mesh that it gets sent to.
+			This accounts for 90% of the triangles, but if it splits the triangle, then a new triangle and quadrilateral need to be formed.
+			<i>(note: the other cases are symmetries of the ones shown.)</i>
+			<br />
+			<br />
+			<img class="figure" src="figure/cases.png" />
+			<br />
+			This is done using a segment-plane intersection to find where along the segment the plane hits.
+			Then the retessellation into the tri and quad is trivial.
+			For debugging purposes, and because I thought it looked cool, I chose to specially color these split tris.
+			One side uses yellow, magenta, or red, while the other uses green, cyan, or blue.
+			All other triangles are just left as white.
+			<br />
+			<br />
+			I intend to implement a multi-plane fracture in the future, such that a shape could look like it is being broken.
+			I also intend to retriangulate the polygonal holes that arise at two sides of the plane surface.
+		</p>
+
+		<h1>Possible Use Case</h1>
+		<p>
+			A system like this can be useful for something like section view in CAD engines, where you want to see halfway through a part.
+			It could used for games like Speed Slice on the Wii.
+			It can also be used in CGI systems where simulating an objects breakage is too expensive, so you can just have the computer solve it.
+			<br />
+			<br />
+			<img class="figure" src="figure/use_case.png" />
+		</p>
+
+		<h1>Gallery</h1>
+		<div id="gallery">
+			<img src="gallery/cow.png" />
+			<img src="gallery/bunny.png" />
+			<img src="gallery/horse.png" />
+			<img src="gallery/jeep.png" />
+			<img src="gallery/dragon.png" />
+			<img src="gallery/bunny2.png" />
+		</div>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
