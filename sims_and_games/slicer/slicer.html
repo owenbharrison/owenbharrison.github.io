@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>s l i c e r</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../gallery.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>s</x><x>l</x><x>i</x><x>c</x><x>e</x><x>r</x>
+		</div>
+		<div id="hac">
+			<a href="../../index.html">home</a>
+			|
+			<a href="../../about/about.html">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="run.html" style="width: 100%; aspect-ratio: 4/3">
+		</iframe>
+
+		<h1>Usage</h1>
+		<p>
+			&bull; Use the ARROWS/right cursor to orbit the build volume.
+			<br />
+			&bull; Use the left cursor to edit the sliders, and then:
+			<br />
+			&bull; Press R to reslice the model.<i>(note: this may take awhile.)</i>
+			<br />
+			&bull; Press E to toggle the prism edge rendering.
+		</p>
+
+		<h1>Overview</h1>
+		<p>
+			For this project, I wanted to experiment with converting a triangulated model(mesh) into a grid of 3d pixels(voxels).
+			I want this project to be a system where a model can be imported, and a set of lego-like building instructions can be generated.
+			<br />
+			<br />
+			To do this, the mesh is first scaled into the build volume and translated onto the bed.
+			Then, its bounding box is found, and the size given by the sliders determines the grid spacing.
+			To determine if a voxel is &quot;inside&quot; the mesh, a ray-polyhedra algorithm is used.
+			Imagine if in 2d I cast a ray in any direction:
+			<br />
+			<br />
+			<img class="figure" src="figure/intersection.png" />
+			<br />
+			Then, counting the number of ray-segment intersections:
+			<br />
+			An <b>odd</b> number means the point must be <b>inside</b> the polygon, while an even number means the point is outside.
+			<br />
+			This algorithm is extended to 3d by checking against triangles instead of segments.
+			<br />
+			<br />
+			Since this needs to be done for every voxel, and each ray needs to check every triangle of the mesh, it is quite slow.
+			To optimize this in the future, I plan to implement a bounding volume hierarchy(BVH).
+			<br />
+			<br />
+			These voxels are then &quot;combined&quot; along the xz-plane so as to construct prisms.
+			This is done using a
+			<a href="../../concepts/greedy_meshing.pdf">greedy meshing</a>
+			algorithm that constrains the block size to standard lego sizes
+			(think 1x4, 2x2, 2x4, 1x6, etc.).
+			This way each vertical slice has its own set of blocks that could be stacked on top of the pervious layer.
+		</p>
+
+		<h1>Gallery</h1>
+		<div id="gallery">
+			<img src="gallery/slice1.png" />
+			<img src="gallery/slice2.png" />
+			<img src="gallery/slice3.png" />
+			<img src="gallery/slice4.png" />
+			<img src="gallery/slice5.png" />
+			<img src="gallery/slice6.png" />
+		</div>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
