@@ -19,9 +19,9 @@
 		</div>
 
 		<div id="hac">
-			<a href="../index.html">home</a>
+			<a href="..">home</a>
 			|
-			<a href="../about/about.html">about</a>
+			<a href="../about">about</a>
 			|
 			<a onclick="randomizeElementColors()">click me</a>
 		</div>
@@ -74,11 +74,11 @@
 				`;
 			if (c.explore) {
 				html += `
-					<a href="${c.name}/${c.name}.html">explore</a>
+					<a href="${c.name}">explore</a>
 					`;
 			} else {
 				html += `
-					<a href="${c.name}/run.html">&#9655; run</a>
+					<a href="${c.name}/wasm">&#9655; run</a>
 					`;
 			}
 			html += `
