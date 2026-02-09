@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>a s t a r n a v</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>a</x><x>s</x><x>t</x><x>a</x><x>r</x><x>n</x><x>a</x><x>v</x>
+		</div>
+		<div id="hac">
+			<a href="../..">home</a>
+			|
+			<a href="../../about">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="wasm" style="width: 100%; aspect-ratio: 2/1">
+		</iframe>
+
+		<h1>Usage</h1>
+		<p>
+			&bull; Use the W/A/S/D keys to move the camera around.
+			<br />
+			&bull; Use Shift/Space to move the camera up/down.
+			<br />
+			&bull; Use the ARROWS to look around.
+			<br />
+			&bull; Press F to set the from waypoint.
+			<br />
+			&bull; Press T to set the to waypoint.
+			<br />
+			&bull; Press TAB to swap the waypoints.
+			<br />
+			&bull; Press ESCAPE to remove the waypoints.
+			<br />
+			&bull; Press R to route a connection between the waypoints.
+			<br />
+			&bull; Press L to set the scene light position.
+			<br />
+			&bull; Press G to toggle the graph rendering.
+		</p>
+
+		<h1>Overview</h1>
+		<p>
+			This project is an experiment in using the A star graph traversal algorithm along a navigational mesh in 3d.
+			<br />
+			<br />
+			To do this, first the terrain mesh is loaded and scaled.
+			Using a poisson-disc distribution, points are sampled across the xz plane.
+			The height of the points are snapped to the terrain surface.
+			Then, using delaunay-triangulation, a mesh of these waypoints is constructed.
+			Then, an edge extraction finds all unique sets of edges within the waypoint triangulation.
+			These waypoints and edges are sent into a graph struct.
+			<br />
+			<br />
+			Then the program routes a connection between the chosen from and to waypoints.
+			This route is shown in the program with an animation scheme of particles linearly interpolated across the edges of the route.
+		</p>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
