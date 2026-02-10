@@ -31,7 +31,7 @@ if (ENVIRONMENT_IS_NODE) {
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\owenb\AppData\Local\Temp\tmpr6zryfc_.js
+// include: C:\Users\owenb\AppData\Local\Temp\tmpebm8w7t5.js
 
   Module['expectedDataFileDownloads'] ??= 0;
   Module['expectedDataFileDownloads']++;
@@ -216,21 +216,21 @@ Module['FS_createPath']("/assets", "models", true, true);
 
   })();
 
-// end include: C:\Users\owenb\AppData\Local\Temp\tmpr6zryfc_.js
-// include: C:\Users\owenb\AppData\Local\Temp\tmpo6faigti.js
+// end include: C:\Users\owenb\AppData\Local\Temp\tmpebm8w7t5.js
+// include: C:\Users\owenb\AppData\Local\Temp\tmpoi6hbvof.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if (Module['$ww'] || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: C:\Users\owenb\AppData\Local\Temp\tmpo6faigti.js
-// include: C:\Users\owenb\AppData\Local\Temp\tmpcszfdcvv.js
+  // end include: C:\Users\owenb\AppData\Local\Temp\tmpoi6hbvof.js
+// include: C:\Users\owenb\AppData\Local\Temp\tmpmhgv9_4b.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: C:\Users\owenb\AppData\Local\Temp\tmpcszfdcvv.js
+  // end include: C:\Users\owenb\AppData\Local\Temp\tmpmhgv9_4b.js
 
 
 var arguments_ = [];
