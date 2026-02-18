@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>rubiks cube</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>r</x><x>u</x><x>b</x><x>i</x><x>k</x><x>s</x><x>c</x><x>u</x><x>b</x><x>e</x>
+		</div>
+		<div id="hac">
+			<a href="../..">home</a>
+			|
+			<a href="../../about">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="wasm" style="width: 100%; aspect-ratio: 4/3">
+		</iframe>
+
+		<h1>Usage</h1>
+		<p>
+			&bull; Use the left cursor/ARROWS to orbit around.
+			<br />
+			&bull; Press S to scramble the cube.
+			<br />
+			&bull; Press HOME to reset the cube.
+			<br />
+			&bull; Press F to turn the front face clockwise.
+			<br />
+			&bull; Press U to turn the upper face clockwise.
+			<br />
+			&bull; Press L to turn the left face clockwise.
+			<br />
+			&bull; Press B to turn the back face clockwise.
+			<br />
+			&bull; Press D to turn the down face clockwise.
+			<br />
+			&bull; Press R to turn the right face clockwise.
+			<br />
+			&bull; Hold SHIFT to instead turn counter clockwise.
+		</p>
+
+		<h1>Overview</h1>
+		<p>
+			For this project, I wanted to experiment with the user interaction and algorithmic solve of an NxN 3D twisty puzzle.
+		</p>
+		<p>
+			Assume the following coordinate system for this project:
+		</p>
+		<img class="figure" style="max-height: 90px" src="figure/system.png" />
+		<p>
+			I made the program with generalization in mind, so it can simulate an N*N.
+			The current version of it is just the standard 3*3.
+			The cube state is stored in memory as a 6*N*N grid of integers.
+		</p>
+		<img class="figure" src="figure/layout.png" />
+		<p>
+			Storing them this way, they are called facelets.
+			Those integers are designated as follows:
+		</p>
+		<img class="figure" src="figure/designations.png" />
+		<p>
+			To turn the cube along an axis, the facelets along the slice and adjacent face must be accumulated:
+			Take a clockwise turn about y:
+			The blue dots are on the slice, and the green dots are on the face.
+		</p>
+		<img class="figure" src="figure/accumulate.png" />
+		<p>
+			The program pre allocates temporary buffers of 4*N for the slice, and N*N for the face to store these facelet integers in.
+			The slice is then rotated by N, left if clockwise, right if counter clockwise.
+			The face is reindexed to rotate the integer grid.
+		</p>
+		<p>
+			To simplify these turns, I implemented Singmaster&#39;s notation in the form of static const members of the Turn class:
+		</p>
+		<img class="figure" src="figure/singmaster.png" />
+		<p>
+			Note that the Turn class has three fields: axis, slice, and parity.
+			using 1-based indexing, the integer slice packs more than just an index:
+			A positive value means index forward from 0, whereas negative means index backward from num-1.
+			A value of zero tells the entire cube to turn along that axis, useful for the initial orientation.
+			This way I can use the same notation for NxN cubes; the index isnt hard-coded to the cube size.
+			However, the notation for inner slices of larger cubes will still be cumbersome.
+		</p>
+		<h1>Under Construction...</h1>
+		<p>
+			I am still working on the solving portion of this program.
+			I will first implement the beginner&#39;s method solve:
+			<br />
+			1. Orient the cube.
+			<br />
+			2. Make the bottom cross
+			<br />
+			3. Put corners into bottom layer
+			<br />
+			4. Put edges into middle layer
+			<br />
+			5. Orient the top cross
+			<br />
+			6. Permute the top cross
+			<br />
+			7. Orient the top corners
+			<br />
+			8. Permute the top corners
+			<br />
+			9. Profit
+		</p>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
