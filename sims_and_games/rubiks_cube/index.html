@@ -51,6 +51,10 @@
 			&bull; Press R to turn the right face clockwise.
 			<br />
 			&bull; Hold SHIFT to instead turn counter clockwise.
+			<br />
+			&bull; Press keys 1-9 to change the cube size.
+			<br />
+			&bull; Press T to toggle the turn queue render.
 		</p>
 
 		<h1>Overview</h1>
@@ -84,12 +88,15 @@
 			The face is reindexed to rotate the integer grid.
 		</p>
 		<p>
-			To simplify these turns, I implemented Singmaster&#39;s notation in the form of static const members of the Turn class:
+			To simplify these turns, I implemented Singmaster&#39;s notation in the form of static const members of the Turn class.
+			These turns are relative as if you were looking at the +z face.
+			<br />
+			<i>(Note: the inverse rotations are omitted, as they are just copies with differing ccw values.)</i>
 		</p>
-		<img class="figure" src="figure/singmaster.png" />
+		<img class="figure" src="figure/notation.png" />
 		<p>
 			Note that the Turn class has three fields: axis, slice, and parity.
-			using 1-based indexing, the integer slice packs more than just an index:
+			using 1-based indexing, the slice integer packs more than just an index:
 			A positive value means index forward from 0, whereas negative means index backward from num-1.
 			A value of zero tells the entire cube to turn along that axis, useful for the initial orientation.
 			This way I can use the same notation for NxN cubes; the index isnt hard-coded to the cube size.
