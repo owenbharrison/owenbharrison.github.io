@@ -31,7 +31,7 @@ if (ENVIRONMENT_IS_NODE) {
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\owenb\AppData\Local\Temp\tmpvfwk1plk.js
+// include: C:\Users\owenb\AppData\Local\Temp\tmpxrtxfgt2.js
 
   Module['expectedDataFileDownloads'] ??= 0;
   Module['expectedDataFileDownloads']++;
@@ -208,25 +208,25 @@ Module['FS_createPath']("/", "assets", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/assets/imgui.ini", "start": 0, "end": 468}], "remote_package_size": 468});
+    loadPackage({"files": [{"filename": "/assets/icon.png", "start": 0, "end": 1797}, {"filename": "/assets/imgui.ini", "start": 1797, "end": 1956}], "remote_package_size": 1956});
 
   })();
 
-// end include: C:\Users\owenb\AppData\Local\Temp\tmpvfwk1plk.js
-// include: C:\Users\owenb\AppData\Local\Temp\tmpvht22wge.js
+// end include: C:\Users\owenb\AppData\Local\Temp\tmpxrtxfgt2.js
+// include: C:\Users\owenb\AppData\Local\Temp\tmp_1xtyi4q.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if (Module['$ww'] || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: C:\Users\owenb\AppData\Local\Temp\tmpvht22wge.js
-// include: C:\Users\owenb\AppData\Local\Temp\tmp44bnu7n0.js
+  // end include: C:\Users\owenb\AppData\Local\Temp\tmp_1xtyi4q.js
+// include: C:\Users\owenb\AppData\Local\Temp\tmp6sx0qo7w.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: C:\Users\owenb\AppData\Local\Temp\tmp44bnu7n0.js
+  // end include: C:\Users\owenb\AppData\Local\Temp\tmp6sx0qo7w.js
 
 
 var arguments_ = [];
