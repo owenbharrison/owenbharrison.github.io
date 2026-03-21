@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>s i m s &amp; g a m e s</title>
+
+	<link rel="stylesheet" href="../header.css">
+	<link rel="stylesheet" href="../coolname.css">
+	<link rel="stylesheet" href="../hac.css">
+	<link rel="stylesheet" href="../cardgrid.css">
+	<link rel="stylesheet" href="../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>c</x><x>a</x><x>d</x>
+		</div>
+
+		<div id="hac">
+			<a href="..">home</a>
+			|
+			<a href="../about">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="cardgrid">
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script>
+		const cards = [
+			{ name: "hoberman", title: "hoberman", desc: "foldable kinetic linkages", date: "feb 23, 2026" },
+			{ name: "construction", title: "under construction!", desc: "work in progress...", date: "soon very soon" }
+		];	
+
+		let cardgrid = document.getElementById("cardgrid");
+
+		//visual studio does NOT know how to format this.
+		cards.forEach(c => {
+			let src = "https://github.com/owenbharrison/simsAndGames/tree/main/" + c.name;
+			let html = `
+				<div class="card">
+				<div class="thumb">
+				<img src="${c.name}/thumbnail.png"/>
+				</div>
+				<div class="content">
+				<h2>${c.title}</h2>
+				<span>
+				<a href="${c.name}">explore</a>
+				</span >
+				<p>${c.desc}</p>
+				<span class="date">${c.date}</span>
+				</div>
+				</div>
+				`;
+			cardgrid.innerHTML += html;
+		});</script>
+
+	<script src="../click_me.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>h o b e r m a n</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../gallery.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>h</x><x>o</x><x>b</x><x>e</x><x>r</x><x>m</x><x>a</x><x>n</x>
+		</div>
+		<div id="hac">
+			<a href="../..">home</a>
+			|
+			<a href="../../about">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<img src="thumbnail2.png" style="width: 100%" />
+
+		<h1>Overview</h1>
+		<p>
+			For this project, I wanted to remodel and replicate the hoberman mechanism that can be found in the expanding toy of the same name.
+			Such as linkage consists of a number of angled bars connected with revolute joints in a scissor fashion.
+			An arrangement of seven such links is quite pleasing:
+		</p>
+		<img class="figure" style="max-height: 360px" src="figure/math.png" />
+		<p>
+			The math relating the number of links and their corresponding angle is as follows:
+		</p>
+		<img class="figure" src="figure/angle.png" />
+		<p>
+			But, theory can only take us so far.
+			So I made it with legos:
+		</p>
+		<img class="figure" style="max-height: 360px" src="figure/real1.png" />
+		<br />
+		<img class="figure" style="max-height: 360px" src="figure/real2.png" />
+		<br />
+		<img class="figure" style="max-height: 360px" src="figure/real3.png" />
+		<br />
+		<img class="figure" style="max-height: 360px" src="figure/real4.png" />
+		<p>
+			Note that the linkages purposefully can&#39;t extend fully, as when you try to compact them after the fact, they buckle.
+		</p>
+		<p>
+			As far as modeling this system goes, I first took to a single link:
+		</p>
+		<img class="figure" style="max-height: 360px" src="figure/link_real.png" />
+		<br />
+		<img class="figure" style="max-height: 360px" src="figure/link_cad.png" />
+		<p>
+			Then combining sixteen of those on the top and bottom with some connecting pins yeilds the following assembly:
+		</p>
+		<img class="figure" style="max-height: 360px" src="figure/cad1.png" />
+		<br />
+		<img class="figure" style="max-height: 360px" src="figure/cad2.png" />
+		<br />
+		<img class="figure" style="max-height: 360px" src="figure/cad3.png" />
+		<br />
+		<img class="figure" style="max-height: 360px" src="figure/cad4.png" />
+		<p>
+			It&#39;s cool to see them side by side:
+		</p>
+		<img class="figure" style="max-height: 360px" src="figure/real_combined.png" />
+		<br />
+		<img class="figure" style="max-height: 360px" src="figure/cad_combined.png" />
+
+		<h1>Simulation</h1>
+		<p>
+			I thought it would be nice for you to be able to interact with this system.
+			So, I&#39;ve gone ahead and made a simulation of such a linkage mechanism, which is hosted on this very website!
+			Check out the
+			<a href="../../sims_and_games/sketcher/wasm">sketcher</a>
+			program.
+		</p>
+		<img class="figure" src="figure/simulation.png" />
+
+		<h1>Possible Use Case</h1>
+		<p>
+			A system of linkages like this could be used as an iris opening mechanism for something like a camera aperture or a stadium ceiling.
+		</p>
+		<img class="figure" src="figure/iris.png" />
+		<br />
+		<img class="figure" src="figure/benz.png" />
+
+		<h1>Gallery</h1>
+		<p>
+			Here are some screenshots of nice colors on the program
+		</p>
+		<div id="gallery">
+			<img src="gallery/5.png" />
+			<img src="gallery/pink.png" />
+			<img src="gallery/7.png" />
+			<img src="gallery/white.png" />
+			<img src="gallery/8.png" />
+			<img src="gallery/blue.png" />
+			<img src="gallery/10.png" />
+			<img src="gallery/yellow.png" />
+		</div>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
