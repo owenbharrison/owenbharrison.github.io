@@ -31,7 +31,7 @@ if (ENVIRONMENT_IS_NODE) {
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\owenb\AppData\Local\Temp\tmpebm8w7t5.js
+// include: C:\Users\owenb\AppData\Local\Temp\tmpkenfdn41.js
 
   Module['expectedDataFileDownloads'] ??= 0;
   Module['expectedDataFileDownloads']++;
@@ -212,25 +212,25 @@ Module['FS_createPath']("/assets", "models", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/assets/img/checker.png", "start": 0, "end": 1335394}, {"filename": "/assets/img/font/fancy_8x16.png", "start": 1335394, "end": 1338784}, {"filename": "/assets/img/font/monogram_6x9.png", "start": 1338784, "end": 1340866}, {"filename": "/assets/img/font/round_6x6.png", "start": 1340866, "end": 1342148}, {"filename": "/assets/img/skybox/nx.png", "start": 1342148, "end": 1751981}, {"filename": "/assets/img/skybox/ny.png", "start": 1751981, "end": 2273164}, {"filename": "/assets/img/skybox/nz.png", "start": 2273164, "end": 2680647}, {"filename": "/assets/img/skybox/px.png", "start": 2680647, "end": 3127232}, {"filename": "/assets/img/skybox/py.png", "start": 3127232, "end": 3430223}, {"filename": "/assets/img/skybox/pz.png", "start": 3430223, "end": 3862898}, {"filename": "/assets/models/axis.txt", "start": 3862898, "end": 3874210}, {"filename": "/assets/models/bunny.txt", "start": 3874210, "end": 3957433}, {"filename": "/assets/models/cow.txt", "start": 3957433, "end": 4400469}, {"filename": "/assets/models/dragon.txt", "start": 4400469, "end": 5545377}, {"filename": "/assets/models/horse.txt", "start": 5545377, "end": 5990250}, {"filename": "/assets/models/monkey.txt", "start": 5990250, "end": 6055341}], "remote_package_size": 6055341});
+    loadPackage({"files": [{"filename": "/assets/img/checker.png", "start": 0, "end": 1335394}, {"filename": "/assets/img/font/fancy_8x16.png", "start": 1335394, "end": 1338784}, {"filename": "/assets/img/font/monogram_6x9.png", "start": 1338784, "end": 1340866}, {"filename": "/assets/img/font/round_6x6.png", "start": 1340866, "end": 1342148}, {"filename": "/assets/img/skybox/nx.png", "start": 1342148, "end": 1751981}, {"filename": "/assets/img/skybox/ny.png", "start": 1751981, "end": 2273164}, {"filename": "/assets/img/skybox/nz.png", "start": 2273164, "end": 2680647}, {"filename": "/assets/img/skybox/px.png", "start": 2680647, "end": 3127232}, {"filename": "/assets/img/skybox/py.png", "start": 3127232, "end": 3430223}, {"filename": "/assets/img/skybox/pz.png", "start": 3430223, "end": 3862898}, {"filename": "/assets/models/axis.txt", "start": 3862898, "end": 3874210}, {"filename": "/assets/models/bunny.txt", "start": 3874210, "end": 3957433}, {"filename": "/assets/models/cow.txt", "start": 3957433, "end": 4400469}, {"filename": "/assets/models/dragon.txt", "start": 4400469, "end": 5545377}, {"filename": "/assets/models/horse.txt", "start": 5545377, "end": 5990250}, {"filename": "/assets/models/icosphere.txt", "start": 5990250, "end": 5997157}, {"filename": "/assets/models/monkey.txt", "start": 5997157, "end": 6062248}], "remote_package_size": 6062248});
 
   })();
 
-// end include: C:\Users\owenb\AppData\Local\Temp\tmpebm8w7t5.js
-// include: C:\Users\owenb\AppData\Local\Temp\tmpoi6hbvof.js
+// end include: C:\Users\owenb\AppData\Local\Temp\tmpkenfdn41.js
+// include: C:\Users\owenb\AppData\Local\Temp\tmpff9sg1bc.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if (Module['$ww'] || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: C:\Users\owenb\AppData\Local\Temp\tmpoi6hbvof.js
-// include: C:\Users\owenb\AppData\Local\Temp\tmpmhgv9_4b.js
+  // end include: C:\Users\owenb\AppData\Local\Temp\tmpff9sg1bc.js
+// include: C:\Users\owenb\AppData\Local\Temp\tmpuf4vubse.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: C:\Users\owenb\AppData\Local\Temp\tmpmhgv9_4b.js
+  // end include: C:\Users\owenb\AppData\Local\Temp\tmpuf4vubse.js
 
 
 var arguments_ = [];
