@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>s p l i t t e r</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../gallery.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>s</x><x>p</x><x>l</x><x>i</x><x>t</x><x>t</x><x>e</x><x>r</x>
+		</div>
+		<div id="hac">
+			<a href="../..">home</a>
+			|
+			<a href="../../about">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="wasm" style="width: 100%; aspect-ratio: 9/5">
+		</iframe>
+
+		<h1>Usage</h1>
+		<p>
+			&bull; Drag the left cursor to set the split plane.
+			<br />
+			&bull; Press W to toggle wireframe rendering.
+		</p>
+
+		<h1>Overview</h1>
+		<p>
+			For this project, I wanted to experiment with the procedural splitting of meshes.
+		</p>
+		<p>
+			The core algorithm of this project revolves around the clipping of triangles about a plane.
+			To determine which side of the plane a vertex is on, the dot product can be used.
+			Let c be any point on the plane, with n as its normal.
+			Let p be an arbitrary point in space.
+			If this dot product is greater than zero, p is front of the plane, else behind.
+		</p>
+		<img class="figure" src="figure/dot_product.png" />
+		<p>
+			This isn&#39;t the whole story.
+			There are a few cases that we need to cover.
+			There is the case that the plane completely misses the triangle.
+			If this happens, the side that its on is the mesh that it gets sent to.
+			This accounts for 90% of the triangles, but if it splits the triangle, then a new triangle and quadrilateral need to be formed.
+			<i>(note: the other cases are symmetries of the ones shown.)</i>
+		</p>
+		<img class="figure" src="figure/cases.png" />
+		<p>
+			This is done using a segment-plane intersection to find where along the segment the plane hits.
+			The vertexes are split between two meshes: one in front of the plane, and one behind.
+			Then those indexes are stored in a map for later retrieval.
+		</p>
+		<img class="figure" src="figure/intersection.png" />
+		<p>
+			Once that front and back mesh are constructed, there are possibilities for a mesh to be disjointly connected.
+			The adjacencies are predicated by the triangles.
+			A floodfill/part seperation algorithm is used to then distinguish the islands.
+		</p>
+		<img class="figure" src="figure/floodfill.png" />
+
+		<h1>Gallery</h1>
+		<div id="gallery">
+			<img src="gallery/rect.png" />
+			<img src="gallery/torus.png" />
+			<img src="gallery/squiggle.png" />
+		</div>
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
