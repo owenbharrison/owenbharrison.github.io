@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>f i x i e</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>f</x><x>i</x><x>x</x><x>i</x><x>e</x>
+		</div>
+		<div id="hac">
+			<a href="../..">home</a>
+			|
+			<a href="../../about">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<img style="width: 100%" src="figure/main.png" />
+
+		<h1>Overview</h1>
+		<p>
+			For this project, I wanted to model my fixie bike.
+			I thought it would be cool to have a scale model, and the wheels and frame seemed like a good challenge.
+		</p>
+		<img class="figure" style="max-height: 360px" src="figure/actual.png" />
+		<p>
+			The bike is a mostly steel frame with rubber tires and grips, a foam seat, and polycarbonate pedals.
+			It has four main subsystems:
+			<br />
+			&bull; Drivetrain(wheels, gears, pedla, cranks, chain)
+			<br />
+			&bull; Frontend(stem, handlebar, grips)
+			<br />
+			&bull; Seat(seat post, saddle, saddle clamp)
+			<br />
+			&bull; Frame(frame, fork, bottle cage)
+		</p>
+		<img class="figure" src="figure/systems.png" />
+
+		<h1>Most Difficult Part</h1>
+		<p>
+			The frame has the most intricate features, such as the individual members, the dropouts, the wheel cutouts, and the weld seams.
+			To model it, I first used some sweeps for the base frame.
+			Then I used a couple extrudes for the dropout, and some cuts for the set screws.
+			I then used a 3d sketch and lofts to connect the dropout to the rear triangle.
+			Finally, the wheel relief was just a cut and some fillets.
+		</p>
+		<img class="figure" style="max-height: 360px" src="figure/frame_how.png" />
+		<p>
+			I only modeled the left half, as it is symmetric about its side plane.
+			After mirroring, the final result is quite pleasing.
+		</p>
+		<img class="figure" style="max-height: 360px" src="figure/frame.png" />
+
+		<h1>Most Complicated Drawing</h1>
+		<p>
+			Far and away the most complicated drawing was that of the pedals.
+			I had to use a section view with compound detail views to display the chamfers on the side of the walls.
+			This was a good exercise in my engineering drawing abilities, however.
+		</p>
+		<img class="figure" style="max-height: none" src="figure/pedal.png" />
+
+		<h1>Expectation vs. Reality</h1>
+		<p>
+			The obvious thing that I did not model here is the brake system, but otherwise, I think it looks spot on.
+			Something clearly off is also the texture, but it was quite hard to find a rainbow gradient and to get the shininess in SolidWorks.
+		</p>
+		<img class="figure" style="max-height: 360px" src="figure/expect.png" />
+
+		<h1>Lessons Learned</h1>
+		<p>
+			&bull; Invest in proper metal dial calipers.
+			<br />
+			&bull; The boolean combination tools are your best friend.
+			<br />
+			&bull; Don&#39;t get caught up in the minutiae.
+		</p>
+		<img class="figure" src="figure/lessons.png" />
+
+		<h1>Final Drawing</h1>
+		<img class="figure" style="max-height: none" src="figure/final.png" />
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
