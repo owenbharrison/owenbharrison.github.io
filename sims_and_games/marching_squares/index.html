@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>m a r c h i n g s q u a r e s</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname" style="text-align:center;">
+			<style>
+				#coolname x {
+					margin: 0 1vw;
+				}
+
+				#coolname {
+					letter-spacing: 0 !important;
+				}
+			</style>
+
+			<x>m</x><x>a</x><x>r</x><x>c</x><x>h</x><x>i</x><x>n</x><x>g</x>
+			<br />
+			<x>s</x><x>q</x><x>u</x><x>a</x><x>r</x><x>e</x><x>s</x>
+		</div>
+		<div id="hac">
+			<a href="../..">home</a>
+			|
+			<a href="../../about">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="wasm" style="width: 100%; aspect-ratio: 9/5">
+		</iframe>
+
+		<h1>Usage</h1>
+		<p>
+			&bull; Use the left cursor to drag a shape&#39;s handle/control point.
+			<br />
+			&bull; Press R to add a rectangle.
+			<br />
+			&bull; Press C to add a circle.
+			<br />
+			&bull; Press T to add a triangle.
+			<br />
+			&bull; Press X to remove a shape.
+			<br />
+			&bull; Press SPACE to switch between union and intersection modes.
+			<br />
+			&bull; Use the UP/DOWN arrows to change the grid resolution.
+			<br />
+			&bull; Press S to toggle the shape rendering.
+			<br />
+			&bull; Press V to toggle the SDF value rendering.
+		</p>
+
+		<h1>Overview</h1>
+		<p>
+			This project uses marching squares to contour a signed distance function(SDF).
+		</p>
+		<p>
+			An SDF is a function that takes a point in space and returns the distance to a shape.
+			The sign gives information as to whether the point is outside(+) or inside(-).
+			Inigo Quilez has a great interactive
+			<a href="https://iquilezles.org/articles/distfunctions2d/">article</a>
+			about the math behind these functions.
+		</p>
+		<p>
+			Marching squares is an algorithm that constructs an isoline from a scalar field.
+			An isoline is a curve of where each point has constant value.
+			Think of a topographic map, displaying lines of elevation.
+		</p>
+		<img class="figure" src="figure/map.png" />
+		<p>
+			In our case, the field is a scalar grid of multiple SDFs of simple shapes.
+			Those multiple functions can then be combined in ways like a union, intersection, or subtraction to create complex manifolds.
+		</p>
+		<img class="figure" src="figure/combine.png" />
+		<p>
+			It generally follows that the boundary of our model is where these values are zero.
+			SDFs are powerful in this way, as now a complex operation like shelling can be represented with just two threshold checks.
+			Discretizing the field into cells lets us analyze the base case for how to seperate 4 nodes which can be either above or below the threshold.
+		</p>
+		<img class="figure" src="figure/cases.png" />
+
+		<h1>Possible Use Case</h1>
+		<p>
+			The key takeway is that geometries can be defined using math instead of discrete elements like points, lines, or triangles.
+			This can also allow us to realize a model with practially infinite resolution, like scalable vector graphics(SVG).
+			Systems like this are implemented in a few computer aided design(CAD) packages.
+			This is an entirely different workflow, as some operations are greatly simplified, while others complicated.
+			It is a balance and truly depends on the types of thing you are designing.
+		</p>
+
+		<h1>Gallery</h1>
+		<p>
+			<img class="figure" style="max-height: 360px" src="figure/cool_shapes.png" />
+			<br />
+			<img class="figure" style="max-height: 360px" src="figure/cool_outline_shapes.png" />
+			<br />
+			<img class="figure" style="max-height: 360px" src="figure/cool_outline.png" />
+			<br />
+			<img class="figure" style="max-height: 360px" src="figure/cool_sdf.png" />
+		</p>
+	</div>
+
+	<footer>
+		&copy; 2026 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
