@@ -46,7 +46,7 @@
 			<br />
 			&bull; Press B to toggle the bounding box view.
 			<br />
-			&bull; Press 1-8 to change the flag sprite.
+			&bull; Press 0-9 to change the flag sprite.
 			<br />
 			&bull; Press L to set the scene light position.
 		</p>
@@ -54,50 +54,46 @@
 		<h1>Overview</h1>
 		<p>
 			I made this project to try and simulate a 3d cloth with wind forces.
-			<br />
-			<br />
+		</p>
+		<p>
 			To simulate each particle, I store its position, velocity, and acceleration.
 			Each frame, gravity and a random wind force computed using
 			<a href="https://en.wikipedia.org/wiki/Perlin_noise">perlin noise</a>
 			is applied to the acceleration.<i>(note: each particle has a mass of 1 for simplicity.)</i>
-			<br />
-			<br />
+		</p>
+		<p>
 			On program startup, a random resolution determines the cell spacing.
 			These particles are placed in a grid along the xy plane.
 			To construct the cloth shape, springs are placed between particles.
 			Each vertical and horizontal adjacent pair is connected.
 			Also, both diagonals are connected as well, helping the stability:
-			<br />
-			<br />
-			<img class="figure" src="figure/grid.png" />
-			<br />
+		</p>
+		<img class="figure" src="figure/grid.png" />
+		<p>
 			To render the surface of the cloth, the grid is tessellated into triangles.
 			To texture the cloth with a flag sprite, in the grid step, the normalized uv coordinates are used to sample the given texture.
-			<br />
-			<br />
-			<img class="figure" src="figure/triangulate.png" />
-			<br />
+		</p>
+		<img class="figure" src="figure/triangulate.png" />
+		<p>
 			Each frame, all springs are updated using
 			<a href="https://www.youtube.com/watch?v=kyQP4t_wOGI">hookes-law and damping</a>.
-			Then I use a
+			I then use a
 			<a href="https://en.wikipedia.org/wiki/Verlet_integration">verlet integration</a>
 			scheme to update the particles.
-			<br />
-			<br />
-			To make the mouse interaction, I first get the mouse ray using the camera&#39;s inverse-view projection matrix.
+			The physics system runs at 240 time steps per second.
+		</p>
+		<p>
+			To make the mouse interaction, I first get the mouse ray using the camera&#39;s inverse view-projection matrix.
 			Let the vector from the camera to the particle be A. Let the mouse ray be B.
 			Then I calculate the parallel and perpendicular distances using the following:
-			<br />
-			<br />
-			<img class="figure" src="figure/perp.png" />
-			<br />
+		</p>
+		<img class="figure" src="figure/perp.png" />
+		<p>
 			Using this for each particle, I can filter by some selection radius (y&lt;r) and choose the smallest x.
 			On mouse down, I store the camera direction and the initial particle position as the hit plane.
 			Then while dragging, I apply a spring force between the particle P and the intersection between the hit plane and the mouse ray M:
-			<br />
-			<br />
-			<img class="figure" src="figure/interact.png" />
 		</p>
+		<img class="figure" src="figure/interact.png" />
 
 		<h1>Possible Use Case</h1>
 		<p>
