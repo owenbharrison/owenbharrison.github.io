@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>b o i d s</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname">
+			<x>b</x><x>o</x><x>i</x><x>d</x><x>s</x>
+		</div>
+		<div id="hac">
+			<a href="../..">home</a>
+			|
+			<a href="../../about">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="wasm" style="width: 100%; aspect-ratio: 4/3">
+		</iframe>
+
+		<h1>Overview</h1>
+		<p>
+			This project seeks to simulate and model the flocking behavior of bird-like creatures.
+		</p>
+		<p>
+			Coined by Craig Reynolds in his famous 1987 computer graphics paper entitled <i>Flocks, Herds, and Schools: A Distributed Behavioral Model</i>, a boid(or bird-oid) is an autonomous creature(or facsimile of one) represented using mathematics.
+			The motions and manner in which flocks of birds, herds of mammals, and schools of fish move about can be closely mimicked with three simple rules.
+			Rules from which natural and organic actions arise.
+		</p>
+		<img class="figure" style="max-height: 320px" src="figure/rules.png" />
+		<p>
+			As my sketch shows, the rules are:
+			<br />&bull; Separation: an individual will steer away to avoid crowding local flockmates.
+			<br />&bull; Cohesion: an individual will steer such that they face parallel with the rest of the group.
+			<br />&bull; Alignment: an individual will steer toward the center of the group to stay together.
+		</p>
+
+		<h1>Possible Use Cases</h1>
+		<p>
+			This system could be quite useful for analyzing crowd behavior, such as a simple model to suggest how people move throughout highways or train stations, to estimate delays and arrivals.
+			It is most notably used in computer graphics for things like the animals you see swarming in video games or the birds you see in movies generated with CGI.
+		</p>
+		<img class="figure" src="figure/birds.png" />
+		<p>
+			There is also an idea of swarm intelligence, or a hive mind, where in a drone warfare scenario, you have some target, and you also have a load of cheap drones with crude devices on them.
+			You could set the position of some virtual boid at the center, where you want things to follow, and the spray and prey aspect of the system takes care of all inconsistencies or errors that arise in the software to hardware integration step.
+			I’ve also seen a video of a drone swarm moving throughout a forest wherein each entity has attached laser range sensors, so as to scan and map the environment.
+			If I remember correctly they used this and found some ancient jungle temple ruins.
+			This idea I am more morally gung ho about.
+		</p>
+		<img class="figure" src="figure/drone.png" />
+	</div>
+
+	<footer>
+		&copy; 2025 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
