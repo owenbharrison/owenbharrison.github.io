@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>p l a n e t g a m e</title>
+
+	<link rel="stylesheet" href="../../header.css">
+	<link rel="stylesheet" href="../../coolname.css">
+	<link rel="stylesheet" href="../../hac.css">
+	<link rel="stylesheet" href="../../explore.css">
+	<link rel="stylesheet" href="../../footer.css">
+</head>
+<body>
+	<header>
+		<div id="coolname" style="text-align:center;">
+			<style>
+				#coolname x {
+					margin: 0 1vw;
+				}
+
+				#coolname {
+					letter-spacing: 0 !important;
+				}
+			</style>
+
+			<x>p</x><x>l</x><x>a</x><x>n</x><x>e</x><x>t</x>
+			<br />
+			<x>g</x><x>a</x><x>m</x><x>e</x>
+		</div>
+		<div id="hac">
+			<a href="../..">home</a>
+			|
+			<a href="../../about">about</a>
+			|
+			<a onclick="randomizeElementColors()">click me</a>
+		</div>
+	</header>
+
+	<div id="explore">
+		<iframe src="wasm" style="width: 100%; aspect-ratio: 4/3">
+		</iframe>
+
+		<h1>Overview</h1>
+		<p>
+			This project is less of a game(for now) and more of an experiment using a coordinate system oriented around a sphere.
+		</p>
+		<p>
+			First we need to set up the coordinate systems.
+			To simplify the calculations, the player will store its local system.
+			The player position will snap to stay at least some r away from the planet centre.
+			I store this using the forward, up, and right basis vectors.
+		</p>
+		<img class="figure" src="figure/system.png" />
+		<p>
+			This local system requires some maintenance when the player moves.
+			To ensure the vectors remain independent, we need to do some bookkeeping when walking/strafing.
+			To walk, we first displace along the fwd vector, recalculate the up vector, fix the position to the sphere, then update the fwd vector to remain tangency:
+		</p>
+		<img class="figure" src="figure/walk_fwd.png" />
+		<p>
+			Similarly,
+			To strafe, we first displace along the rgt vector, recalculate the up vector, fix the position to the sphere, then update the rgt vector to remain tangency:
+		</p>
+		<img class="figure" src="figure/walk_rgt.png" />
+		<p>
+			Notice when walking, the right vector does not change.
+			Also notice when strafing, the forward vector does not change.
+			This saves us some mind effort!
+		</p>
+		<p>
+			Now we just need to handle rotation about the up axis.
+			During this transform, the up vector does not change.
+			We can use somewhat of a rotation matrix to use the old components to find these new ones:
+		</p>
+		<img class="figure" src="figure/rotate_fur.png" />
+		<p>
+			This was easy to find out one I realized the transform is more or less analogous the 2d rotation:
+		</p>
+		<img class="figure" src="figure/rotate_xy.png" />
+		<p>Fin.</p>
+	</div>
+
+	<footer>
+		&copy; 2026 owen harrison
+	</footer>
+
+	<script src="../../click_me.js"></script>
+</body>
+</html>
